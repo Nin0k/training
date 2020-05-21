@@ -10,7 +10,7 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-           
+            
             Console.Write("Введите ширину прямоугольника:");
             int a = int.Parse(Console.ReadLine());
 
