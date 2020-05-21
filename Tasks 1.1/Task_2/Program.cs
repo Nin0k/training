@@ -12,16 +12,24 @@ namespace Task_2
         {
             
             Console.Write("Введите N:");
-            int N = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < N; i++)
+            try
             {
-                for (int j = 0; j <= i; j++)
+                uint N = uint.Parse(Console.ReadLine());
+                for (uint i = 0; i < N; i++)
                 {
-                    Console.Write("*");
+                    for (uint j = 0; j <= i; j++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
             }
+            catch (Exception)
+            {
+                Console.WriteLine("Ошибка. Неверный формат числа.");
+            }
+
             Console.ReadLine();
         }
     }

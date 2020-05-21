@@ -11,20 +11,29 @@ namespace Task_3
         static void Main(string[] args)
         {
             Console.Write("Введите N:");
-            int N = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < N; i++)
+            try
             {
-                for (int j = N; j > i; j--)
+                uint N = uint.Parse(Console.ReadLine());
+
+                for (uint i = 0; i < N; i++)
                 {
-                    Console.Write(" ");
+                    for (uint j = N; j > i; j--)
+                    {
+                        Console.Write(" ");
+                    }
+
+                    for (uint k = 0; k <= i * 2; k++)
+                    {
+                        Console.Write("*");
+                    }
+
+                    Console.WriteLine();
                 }
-                for (int k = 0; k <= i*2; k++)
-                {
-                    Console.Write("*");
-                }
-                
-                Console.WriteLine();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Ошибка. Неверный формат числа.");
             }
             Console.ReadLine();
         }
