@@ -23,8 +23,8 @@ namespace Task_2._1
                 average += words[i].Length;
             }
             average /= words.Length;
-            Console.WriteLine("Средняя длина слова: " + average);
-            
+            Console.WriteLine("Средняя длина слова: " + average);//ответ округленный
+
             Console.ReadLine();
         }
     }
