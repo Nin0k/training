@@ -17,6 +17,7 @@ namespace Task_2._4
 
             StringBuilder str_new = new StringBuilder(str);
             str_new[0] = char.ToUpper(str_new[0]);
+
             for (int i = 0; i < str_new.Length-1; i++)
             {
                 if (str_new[i]== '.' || str_new[i] == '!' || str_new[i] == '?')
@@ -31,7 +32,6 @@ namespace Task_2._4
                     }
                 }
             }
-
             Console.WriteLine(str_new);
             Console.ReadLine();
         }
