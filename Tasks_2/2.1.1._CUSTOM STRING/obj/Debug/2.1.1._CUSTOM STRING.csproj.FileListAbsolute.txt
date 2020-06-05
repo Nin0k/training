@@ -1,0 +1,9 @@
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\bin\Debug\2.1.1._CUSTOM STRING.exe.config
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\bin\Debug\2.1.1._CUSTOM STRING.exe
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\bin\Debug\2.1.1._CUSTOM STRING.pdb
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\obj\Debug\2.1.1._CUSTOM STRING.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\obj\Debug\2.1.1._CUSTOM STRING.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\obj\Debug\2.1.1._CUSTOM STRING.exe
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\obj\Debug\2.1.1._CUSTOM STRING.pdb
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\bin\Debug\ChangedString.dll
+C:\Users\user\source\repos\Tasks_2\2.1.1._CUSTOM STRING\obj\Debug\2.1.1._CUSTOM STRING.csproj.CopyComplete
