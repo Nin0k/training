@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\bin\Debug\_2._1._2.CUSTOM_PAINT.exe.config
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\bin\Debug\_2._1._2.CUSTOM_PAINT.exe
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\bin\Debug\_2._1._2.CUSTOM_PAINT.pdb
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\obj\Debug\2.1.2. CUSTOM PAINT.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\obj\Debug\2.1.2. CUSTOM PAINT.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\obj\Debug\_2._1._2.CUSTOM_PAINT.exe
+C:\Users\user\source\repos\Tasks_2\2.1.2. CUSTOM PAINT\obj\Debug\_2._1._2.CUSTOM_PAINT.pdb
