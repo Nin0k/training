@@ -136,36 +136,28 @@ namespace _2._1._2.CUSTOM_PAINT
             Exit
         }
 
-        [Flags]
-        enum Figure 
-        {
-             None = 0,
-             Circle = 1,
-             Round = 2,
-             Ring = 4,
-             Rectangle = 8,
-             Square = 16,
-             Triangle = 32,
-             Line = 64
-           /* None,
-            Circle,
-            Round,
-            Ring,
-            Rectangle,
-            Square,
-            Triangle,
-            Line */
+        /* [Flags]
+         * enum Figure 
+         {
+              None = 0,
+              Circle = 1,
+              Round = 2,
+              Ring = 4,
+              Rectangle = 8,
+              Square = 16,
+              Triangle = 32,
+              Line = 64
 
-        }
-      
+         }*/
+
         static void Main(string[] args)
         {
-            
+            List<string> figure = new List<string>();
 
-            var type_figure = Figure.None;
+           
             while (true)
             {
-                double point_x = 0;
+                double point_x;
                 double point_y = 0;
                 double radius;
 
@@ -272,6 +264,7 @@ namespace _2._1._2.CUSTOM_PAINT
                                             Console.WriteLine("Рисуем окружноть...");
                                             Console.WriteLine(circle.GetInfoPoint());
                                             Console.WriteLine(circle.GetInfoFigure());
+                                            figure.Add( $"Окружность. {circle.GetInfoPoint()} {circle.GetInfoFigure()}");
 
                                 }
                                 else
@@ -297,7 +290,7 @@ namespace _2._1._2.CUSTOM_PAINT
                                         Console.WriteLine(round.GetInfoPoint());
                                         Console.WriteLine(round.GetInfoFigure());
 
-                                        type_figure |= Figure.Round;
+                                         figure.Add($"Круг. {round.GetInfoPoint()} {round.GetInfoFigure()}");
                                 }
                                 else
                                 {
@@ -327,9 +320,9 @@ namespace _2._1._2.CUSTOM_PAINT
                                                 Console.WriteLine("Рисуем кольцо...");
                                                 Console.WriteLine(ring.GetInfoPoint());
                                                 Console.WriteLine(ring.GetInfoFigure());
-                                                type_figure |= Figure.Ring;
-                                            
-                                        }
+                                                figure.Add($"Кольцо. {ring.GetInfoPoint()} {ring.GetInfoFigure()}");
+
+                                    }
                                         else
                                         {
                                             Console.WriteLine(WrongInput(1));
@@ -367,8 +360,8 @@ namespace _2._1._2.CUSTOM_PAINT
                                              Console.WriteLine(rectangle.GetInfoPoint());
                                              Console.WriteLine(rectangle.InfoFigure());
 
-                                            type_figure |= Figure.Rectangle;
-                                         }
+                                            figure.Add($"Прямоугольник. {rectangle.GetInfoPoint()} {rectangle.InfoFigure()}");
+                                        }
                                          else
                                          {
                                             Console.WriteLine(WrongInput(1));
@@ -405,8 +398,8 @@ namespace _2._1._2.CUSTOM_PAINT
                                                 Console.WriteLine(square.GetInfoPoint());
                                                 Console.WriteLine(square.InfoFigure());
 
-                                                type_figure |= Figure.Square;
-                                        }
+                                                figure.Add($"Квадрат. {square.GetInfoPoint()} {square.InfoFigure()}");
+                                    }
                                         else
                                         {
                                             Console.WriteLine(WrongInput(1));
@@ -453,8 +446,8 @@ namespace _2._1._2.CUSTOM_PAINT
                                             Console.WriteLine(triangle.GetInfoPoint());
                                             Console.WriteLine(triangle.InfoFigure());
 
-                                            type_figure |= Figure.Ring;
-                                        }
+                                            figure.Add($"Треугольник. {triangle.GetInfoPoint()} {triangle.InfoFigure()}");
+                                    }
                                         else
                                         {
                                             Console.WriteLine(WrongInput(1));
@@ -476,19 +469,22 @@ namespace _2._1._2.CUSTOM_PAINT
                         break;
 
                     case 2:
-                        if (type_figure== Figure.None)
+                        if (figure.Count == 0)
                         {
                             Console.WriteLine("На холсте пусто");
                         }
                         else
                         {
-                            Console.WriteLine("Фигуры на холсте " + type_figure);
+                            foreach (string i in figure)
+                            {
+                                Console.WriteLine(i);
+                            }
                         }
                         
                         break;
 
                     case 3:
-                        type_figure =  Figure.None;
+                        figure.Clear();
                         Console.WriteLine("Холст очищен");
                         break;
 
