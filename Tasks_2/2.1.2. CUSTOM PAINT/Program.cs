@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _2._1._2.CUSTOM_PAINT
 {
@@ -11,11 +8,32 @@ namespace _2._1._2.CUSTOM_PAINT
         public double x;
         public double y;
 
+        public bool InputPoints()
+        {
+            Console.Write("Введите координату центра фигуры по х: ");
+            if (Double.TryParse(Console.ReadLine(), out x))
+            {
+                Console.Write("Введите координату центра фигуры по у: ");
+                if (Double.TryParse(Console.ReadLine(), out y))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public string GetInfoPoint()
         {
             return $"Центр фигуры: x={x}, y={y}. ";
         }
-        
+
     }
     abstract class RoundShape : Figure
     {
@@ -26,7 +44,28 @@ namespace _2._1._2.CUSTOM_PAINT
             return 2* Math.PI * radius;
         }
         public abstract string GetInfoFigure();
-       
+
+        public bool InputRadius()
+        {
+
+            Console.Write("Введите радиус: ");
+            if (Double.TryParse(Console.ReadLine(), out radius))
+            {
+                if (radius > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
     class Circle : RoundShape
     {
@@ -34,7 +73,6 @@ namespace _2._1._2.CUSTOM_PAINT
         {
             return $"Длина описанной окружности = {this.GetСircumference()}";
         }
-
     }
     class Round : RoundShape
     {
@@ -68,7 +106,6 @@ namespace _2._1._2.CUSTOM_PAINT
         {
             return $"Сумма длин внешней и внутренней окружностей = {this.GetSumLengths()}. Площадь кольца = {this.GetArea()}.";
         }
-
     }
 
     abstract class Polygons : Figure
@@ -78,12 +115,22 @@ namespace _2._1._2.CUSTOM_PAINT
         public abstract double GetArea();
         public abstract double GetPerimeter();
 
-        // public abstract string GetInfoFigure();
         public string InfoFigure()
         {
             return $"Площадь = {this.GetArea()}. Периметр = {this.GetPerimeter()}";
         }
-
+        public bool InputA()
+        {
+            Console.Write("Введите сторону а: ");
+            if (Double.TryParse(Console.ReadLine(), out width) && width > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     class Rectangle : Polygons
     {
@@ -113,7 +160,6 @@ namespace _2._1._2.CUSTOM_PAINT
     }
     class Triangle : Polygons
     {
-        public double b;
         public double c;
         public override double GetArea()
         {
@@ -122,88 +168,41 @@ namespace _2._1._2.CUSTOM_PAINT
 
         public override double GetPerimeter()
         {
-            return width + b + c;
+            return width + height + c;
         }
+    }
+    class Line : Figure
+    {
+        public double x1;
+        public double y1;
+        public double x2;
+        public double y2;
+
+        public string GetLineLength ()
+        {
+            double lineLength = Math.Sqrt((x1-x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+            return $"Длина линии {lineLength}";
+        }
+
     }
     class Program
     {
-        enum Action
-        {
-            None,
-            Add,
-            Withdraw,
-            Remove,
-            Exit
-        }
-
-        /* [Flags]
-         * enum Figure 
-         {
-              None = 0,
-              Circle = 1,
-              Round = 2,
-              Ring = 4,
-              Rectangle = 8,
-              Square = 16,
-              Triangle = 32,
-              Line = 64
-
-         }*/
-
         static void Main(string[] args)
         {
             List<string> figure = new List<string>();
-
-           
+            string name = "unknown";
             while (true)
             {
-                double point_x;
-                double point_y = 0;
+                
                 double radius;
 
-                bool InputPoints()
+                string Salute()
                 {
-                    Console.Write("Введите координату центра по х: ");
-                    //point_x = double.Parse(Console.ReadLine());
-                    if (Double.TryParse(Console.ReadLine(), out point_x))
-                    {
-                        Console.Write("Введите координату центра по у: ");
-                        if (Double.TryParse(Console.ReadLine(), out point_y))
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    Console.Write("Представьтесь, пожалуйста. ");
+                    name = Console.ReadLine();
+                    return name;
                 }
-               
-                bool InputRadius()
-                {
 
-                    Console.Write("Введите радиус: ");
-                    if (Double.TryParse(Console.ReadLine(), out radius))
-                    {
-                        if (radius > 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                        
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
                 string WrongInput (int i)
                 {
                     if (i==1)
@@ -214,289 +213,283 @@ namespace _2._1._2.CUSTOM_PAINT
                     {
                         return "Неверная команда";
                     }
-                    
-                    
                 }
-
-                /*bool InputValidation ( double check)
+                if (name == "unknown" || name == "")
                 {
-                    if(check > 0)
-                }*/
+                    Salute();
+                }
+                
+                Console.WriteLine($"{name}, выберите действие:");
+                    Console.WriteLine("     1: Добавить фигуру");
+                    Console.WriteLine("     2: Вывести фигуры");
+                    Console.WriteLine("     3: Очистить холст");
+                    Console.WriteLine("     4: Сменить пользователя");
+                    Console.WriteLine("     5: Выход");
 
-                Console.WriteLine("Выберите действие:");
-                Console.WriteLine("     1: Добавить фигуру");
-                Console.WriteLine("     2: Вывести фигуры");
-                Console.WriteLine("     3: Очистить холст");
-                Console.WriteLine("     4: Выход");
+                    if (int.TryParse(Console.ReadLine(), out int action_new))
+                    {
 
-                int action_new = int.Parse(Console.ReadLine());
-
-
-                switch (action_new)
-                {
-                    case 1:
-                        
-                        Console.WriteLine("Введите:");
-                        Console.WriteLine("     1: Cricle (окружность)");
-                        Console.WriteLine("     2: Round (круг)");
-                        Console.WriteLine("     3: Ring (кольцо)");
-                        Console.WriteLine("     4: Rectangle (прямоугольгик)");
-                        Console.WriteLine("     5: Square (квадрат)");
-                        Console.WriteLine("     6: Triangle (треугольник)");
-                        Console.WriteLine("     7: Line (линия)");
-
-                        int figure_new = int.Parse(Console.ReadLine());
-
-                        switch (figure_new)
+                        switch (action_new)
                         {
                             case 1:
-                               
-                                if(InputPoints() && InputRadius())
+
+                                Console.WriteLine($"{ name}, выберите фигуру:");
+                                Console.WriteLine("     1: Cricle (окружность)");
+                                Console.WriteLine("     2: Round (круг)");
+                                Console.WriteLine("     3: Ring (кольцо)");
+                                Console.WriteLine("     4: Rectangle (прямоугольгик)");
+                                Console.WriteLine("     5: Square (квадрат)");
+                                Console.WriteLine("     6: Triangle (треугольник)");
+                                Console.WriteLine("     7: Line (линия)");
+
+                                if (int.TryParse(Console.ReadLine(), out int figure_new))
                                 {
-                                       
-                                            Circle circle = new Circle
+                                    switch (figure_new)
+                                    {
+                                        case 1:
+                                            Circle circle = new Circle();
+                                            if (circle.InputPoints() && circle.InputRadius())
                                             {
-                                                x = point_x,
-                                                y = point_y,
-                                                radius = radius
-                                            };
+                                                Console.WriteLine("Рисуем окружноть...");
+                                                Console.WriteLine(circle.GetInfoPoint());
+                                                Console.WriteLine(circle.GetInfoFigure());
+                                                figure.Add($"Окружность. {circle.GetInfoPoint()} {circle.GetInfoFigure()}");
 
-                                            Console.WriteLine("Рисуем окружноть...");
-                                            Console.WriteLine(circle.GetInfoPoint());
-                                            Console.WriteLine(circle.GetInfoFigure());
-                                            figure.Add( $"Окружность. {circle.GetInfoPoint()} {circle.GetInfoFigure()}");
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(WrongInput(1));
+                                            }
 
+                                            break;
+
+                                        case 2:
+                                        Round round = new Round();
+                                            if (round.InputPoints() && round.InputRadius())
+                                            {
+
+                                                Console.WriteLine("Рисуем круг...");
+                                                Console.WriteLine(round.GetInfoPoint());
+                                                Console.WriteLine(round.GetInfoFigure());
+
+                                                figure.Add($"Круг. {round.GetInfoPoint()} {round.GetInfoFigure()}");
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(WrongInput(1));
+                                            }
+
+                                            break;
+
+                                        case 3:
+                                            Ring ring = new Ring();
+                                           
+                                            if (ring.InputPoints() && ring.InputRadius())
+                                            {
+                                                radius = ring.radius;
+
+                                                Console.Write("Введите малый радиус: ");
+                                                if (Double.TryParse(Console.ReadLine(), out double smallRadius) && radius > smallRadius && smallRadius > 0)
+                                                {
+                                                    ring.smallRadius = smallRadius;
+                                                    
+                                                    Console.WriteLine("Рисуем кольцо...");
+                                                    Console.WriteLine(ring.GetInfoPoint());
+                                                    Console.WriteLine(ring.GetInfoFigure());
+                                                    figure.Add($"Кольцо. {ring.GetInfoPoint()} {ring.GetInfoFigure()}");
+
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine(WrongInput(1));
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(WrongInput(1));
+                                            }
+
+                                            break;
+
+                                        case 4:
+                                            Rectangle rectangle = new Rectangle();
+                                            if (rectangle.InputPoints() && rectangle.InputA())
+                                            {
+                                                
+                                                    Console.Write("Введите высоту: ");
+                                                    if (Double.TryParse(Console.ReadLine(), out double b) && b > 0)
+                                                    {
+                                                        rectangle.height = b;
+                                                      
+                                                        Console.WriteLine("Рисуем прямоугольник...");
+                                                        Console.WriteLine(rectangle.GetInfoPoint());
+                                                        Console.WriteLine(rectangle.InfoFigure());
+
+                                                        figure.Add($"Прямоугольник. {rectangle.GetInfoPoint()} {rectangle.InfoFigure()}");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine(WrongInput(1));
+                                                    }
+                                                
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(WrongInput(1));
+                                            }
+                                            break;
+
+                                        case 5:
+                                            Square square = new Square();
+                                            if (square.InputPoints() && square.InputA())
+                                            {
+                                                    Console.WriteLine("Рисуем квадрат...");
+                                                    Console.WriteLine(square.GetInfoPoint());
+                                                    Console.WriteLine(square.InfoFigure());
+
+                                                    figure.Add($"Квадрат. {square.GetInfoPoint()} {square.InfoFigure()}");
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(WrongInput(1));
+                                            }
+                                            break;
+
+                                        case 6:
+                                            Triangle triangle = new Triangle();
+                                            if (triangle.InputPoints() && triangle.InputA())
+                                            {
+                                                
+                                                    Console.Write("Введите сторону b: ");
+                                                    if (Double.TryParse(Console.ReadLine(), out double b) && b > 0)
+                                                    {
+
+                                                        Console.Write("Введите сторону c: ");
+                                                        if (Double.TryParse(Console.ReadLine(), out double c) && c > 0)
+                                                        {
+                                                            triangle.height = b;
+                                                            triangle.c = c;
+
+                                                            Console.WriteLine("Рисуем треугольник...");
+                                                            Console.WriteLine(triangle.GetInfoPoint());
+                                                            Console.WriteLine(triangle.InfoFigure());
+
+                                                            figure.Add($"Треугольник. {triangle.GetInfoPoint()} {triangle.InfoFigure()}");
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine(WrongInput(1));
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine(WrongInput(1));
+                                                    }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(WrongInput(1));
+                                            }
+                                            break;
+
+                                        case 7:
+                                                Console.Write("Введите координату х1: ");
+                                                if (Double.TryParse(Console.ReadLine(), out double x1))
+                                                {
+
+                                                    Console.Write("Введите координату y1: ");
+                                                    if (Double.TryParse(Console.ReadLine(), out double y1))
+                                                    {
+
+                                                        Console.Write("Введите координату х2: ");
+                                                        if (Double.TryParse(Console.ReadLine(), out double x2))
+                                                        {
+
+                                                            Console.Write("Введите координату y2: ");
+                                                            if (Double.TryParse(Console.ReadLine(), out double y2))
+                                                            {
+                                                                Line line = new Line
+                                                                {
+                                                                    x = (x1 + x2) / 2,
+                                                                    y = (y1 + y2) / 2,
+                                                                    x1 = x1,
+                                                                    y1 = y1,
+                                                                    x2 = x2,
+                                                                    y2 = y2,
+                                                                };
+
+                                                                Console.WriteLine("Рисуем линию...");
+                                                                Console.WriteLine(line.GetInfoPoint());
+                                                                Console.WriteLine(line.GetLineLength());
+
+                                                                figure.Add($"Линия. {line.GetInfoPoint()} {line.GetLineLength()}");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine(WrongInput(1));
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine(WrongInput(1));
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine(WrongInput(1));
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine(WrongInput(1));
+                                                }
+                                            break;
+                                        default:
+                                            Console.WriteLine(WrongInput(0));
+                                            break;
+                                    }
                                 }
                                 else
                                 {
                                     Console.WriteLine(WrongInput(1));
                                 }
-
                                 break;
 
                             case 2:
-
-                                if (InputPoints() && InputRadius())
+                                if (figure.Count == 0)
                                 {
-                                    
-                                        Round round = new Round
-                                        {
-                                            x = point_x,
-                                            y = point_y,
-                                            radius = radius
-                                        };
-
-                                        Console.WriteLine("Рисуем круг...");
-                                        Console.WriteLine(round.GetInfoPoint());
-                                        Console.WriteLine(round.GetInfoFigure());
-
-                                         figure.Add($"Круг. {round.GetInfoPoint()} {round.GetInfoFigure()}");
+                                    Console.WriteLine("На холсте пусто");
                                 }
                                 else
                                 {
-                                    Console.WriteLine(WrongInput(1));
+                                    foreach (string i in figure)
+                                    {
+                                        Console.WriteLine(i);
+                                    }
                                 }
-
-                                
-                                
                                 break;
 
                             case 3:
-
-                                if (InputPoints() && InputRadius())
-                                {
-                                        Console.Write("Введите малый радиус: ");
-
-                                        if (Double.TryParse(Console.ReadLine(), out double smallRadius) && radius > smallRadius && smallRadius > 0)
-                                        {
-                                                Ring ring = new Ring
-                                                {
-                                                    x = point_x,
-                                                    y = point_y,
-                                                    radius = radius,
-                                                    smallRadius = smallRadius
-                                                };
-
-                                                Console.WriteLine("Рисуем кольцо...");
-                                                Console.WriteLine(ring.GetInfoPoint());
-                                                Console.WriteLine(ring.GetInfoFigure());
-                                                figure.Add($"Кольцо. {ring.GetInfoPoint()} {ring.GetInfoFigure()}");
-
-                                    }
-                                        else
-                                        {
-                                            Console.WriteLine(WrongInput(1));
-                                        }
-                                }
-                                else
-                                {
-                                    Console.WriteLine(WrongInput(1));
-                                }
-
+                                figure.Clear();
+                                Console.WriteLine("Холст очищен");
                                 break;
 
                             case 4:
-
-                                if (InputPoints())
-                                {
-                                    Console.Write("Введите ширину: ");
-                                    double a = double.Parse(Console.ReadLine());
-                                    if (a > 0)
-                                    {
-                                         Console.Write("Введите высоту: ");
-                                         double b = double.Parse(Console.ReadLine());
-                                         if (b > 0)
-                                         {
-
-                                             Rectangle rectangle = new Rectangle
-                                             {
-                                                 x = point_x,
-                                                 y = point_y,
-                                                 width = a,
-                                                 height = b
-                                                };
-
-                                             Console.WriteLine("Рисуем прямоугольник...");
-                                             Console.WriteLine(rectangle.GetInfoPoint());
-                                             Console.WriteLine(rectangle.InfoFigure());
-
-                                            figure.Add($"Прямоугольник. {rectangle.GetInfoPoint()} {rectangle.InfoFigure()}");
-                                        }
-                                         else
-                                         {
-                                            Console.WriteLine(WrongInput(1));
-                                         }
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine(WrongInput(1));
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine(WrongInput(1));
-                                }
-
+                                Console.WriteLine($"Пока, { name}");
+                                name = "unknown";
+                                figure.Clear();
                                 break;
+
                             case 5:
-
-                                if (InputPoints())
-                                {
-                                        Console.Write("Введите ширину: ");
-                                        double a = double.Parse(Console.ReadLine());
-                                        if (a > 0)
-                                        { 
-                                            Square square = new Square
-                                            {
-                                                    x = point_x,
-                                                    y = point_y,
-                                                    width = a,
-                                                    height = a
-                                            };
-
-                                                Console.WriteLine("Рисуем квадрат...");
-                                                Console.WriteLine(square.GetInfoPoint());
-                                                Console.WriteLine(square.InfoFigure());
-
-                                                figure.Add($"Квадрат. {square.GetInfoPoint()} {square.InfoFigure()}");
-                                    }
-                                        else
-                                        {
-                                            Console.WriteLine(WrongInput(1));
-                                        }
-                                }
-                                else
-                                {
-                                    Console.WriteLine(WrongInput(1));
-                                }
-
-                                break;
-                            case 6:
-
-                                if (InputPoints())
-                                {
-                                    
-                                        Console.Write("Введите сторону а: ");
-                                            double a = double.Parse(Console.ReadLine());
-
-                                        Console.Write("Введите сторону b: ");
-                                            double b = double.Parse(Console.ReadLine());
-
-                                        Console.Write("Введите сторону c: ");
-                                            double c = double.Parse(Console.ReadLine());
-
-                                        Console.Write("Введите высоту: ");
-                                            double h = double.Parse(Console.ReadLine());
-
-                                        if (a > 0 && b > 0 && c > 0 && h > 0)
-                                        { 
-                                            
-                                            Triangle triangle = new Triangle
-                                            {
-                                                x = point_x,
-                                                y = point_y,
-                                                width = a,
-                                                b = b,
-                                                c = c,
-                                                height = h
-                                                
-                                            };
-
-                                            Console.WriteLine("Рисуем треугольник...");
-                                            Console.WriteLine(triangle.GetInfoPoint());
-                                            Console.WriteLine(triangle.InfoFigure());
-
-                                            figure.Add($"Треугольник. {triangle.GetInfoPoint()} {triangle.InfoFigure()}");
-                                    }
-                                        else
-                                        {
-                                            Console.WriteLine(WrongInput(1));
-                                        }
-                                }
-                                else
-                                {
-                                    Console.WriteLine(WrongInput(1));
-                                }
-
+                                Environment.Exit(0);
                                 break;
 
                             default:
-                                    Console.WriteLine(WrongInput(0));
+                                Console.WriteLine(WrongInput(0));
                                 break;
-
-
                         }
-                        break;
-
-                    case 2:
-                        if (figure.Count == 0)
-                        {
-                            Console.WriteLine("На холсте пусто");
-                        }
-                        else
-                        {
-                            foreach (string i in figure)
-                            {
-                                Console.WriteLine(i);
-                            }
-                        }
-                        
-                        break;
-
-                    case 3:
-                        figure.Clear();
-                        Console.WriteLine("Холст очищен");
-                        break;
-
-                    case 4:
-                        Console.WriteLine("Выход");
-                        break;
-
-                    default:
-                        Console.WriteLine(WrongInput(0));
-                        break;
-                }
-                   Console.ReadLine();
+                    }
+                Console.ReadLine();
             }
         }
     }
