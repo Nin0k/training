@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1.1._CUSTOM STRING", "2.1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1.2. CUSTOM PAINT", "2.1.2. CUSTOM PAINT\2.1.2. CUSTOM PAINT.csproj", "{99CB307B-3ADB-4A22-B379-55FD56A580AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2.1. GAME", "2.2.1. GAME\2.2.1. GAME.csproj", "{979BA489-4D1D-436E-AA03-28C85FE7D0ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{99CB307B-3ADB-4A22-B379-55FD56A580AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99CB307B-3ADB-4A22-B379-55FD56A580AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99CB307B-3ADB-4A22-B379-55FD56A580AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

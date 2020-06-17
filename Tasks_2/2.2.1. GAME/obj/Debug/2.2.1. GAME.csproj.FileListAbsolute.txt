@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\bin\Debug\_2._2._1.GAME.exe.config
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\bin\Debug\_2._2._1.GAME.exe
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\bin\Debug\_2._2._1.GAME.pdb
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\obj\Debug\2.2.1. GAME.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\obj\Debug\2.2.1. GAME.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\obj\Debug\_2._2._1.GAME.exe
+C:\Users\user\source\repos\Tasks_2\2.2.1. GAME\obj\Debug\_2._2._1.GAME.pdb
