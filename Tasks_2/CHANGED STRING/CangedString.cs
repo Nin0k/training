@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace ChangedString
 {
+
     public class СhangedString
     {
         public char[] new_string;

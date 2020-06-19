@@ -1,9 +1,0 @@
-C:\Users\user\source\repos\ChangedString\ChangedString\bin\Debug\netstandard2.0\ChangedString.deps.json
-C:\Users\user\source\repos\ChangedString\ChangedString\bin\Debug\netstandard2.0\ChangedString.dll
-C:\Users\user\source\repos\ChangedString\ChangedString\bin\Debug\netstandard2.0\ChangedString.pdb
-C:\Users\user\source\repos\ChangedString\ChangedString\obj\Debug\netstandard2.0\ChangedString.csprojAssemblyReference.cache
-C:\Users\user\source\repos\ChangedString\ChangedString\obj\Debug\netstandard2.0\ChangedString.csproj.CoreCompileInputs.cache
-C:\Users\user\source\repos\ChangedString\ChangedString\obj\Debug\netstandard2.0\ChangedString.AssemblyInfoInputs.cache
-C:\Users\user\source\repos\ChangedString\ChangedString\obj\Debug\netstandard2.0\ChangedString.AssemblyInfo.cs
-C:\Users\user\source\repos\ChangedString\ChangedString\obj\Debug\netstandard2.0\ChangedString.dll
-C:\Users\user\source\repos\ChangedString\ChangedString\obj\Debug\netstandard2.0\ChangedString.pdb

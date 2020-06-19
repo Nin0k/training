@@ -1,0 +1,6 @@
+C:\Users\user\source\repos\Tasks_2\CHANGED STRING\bin\Debug\CHANGED STRING.dll
+C:\Users\user\source\repos\Tasks_2\CHANGED STRING\bin\Debug\CHANGED STRING.pdb
+C:\Users\user\source\repos\Tasks_2\CHANGED STRING\obj\Debug\CHANGED STRING.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Tasks_2\CHANGED STRING\obj\Debug\CHANGED STRING.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Tasks_2\CHANGED STRING\obj\Debug\CHANGED STRING.dll
+C:\Users\user\source\repos\Tasks_2\CHANGED STRING\obj\Debug\CHANGED STRING.pdb
