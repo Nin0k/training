@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1.2. CUSTOM PAINT", "2.1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2.1. GAME", "2.2.1. GAME\2.2.1. GAME.csproj", "{979BA489-4D1D-436E-AA03-28C85FE7D0ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.1.1 CUSTOM STRING", "2.1.1 CUSTOM STRING", "{19A9E1D8-7787-461E-AEDE-FDD1FE73B0F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHANGED STRING", "CHANGED STRING\CHANGED STRING.csproj", "{AAD8D9AD-E16F-416E-9287-D96757697A37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,17 @@ Global
 		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{979BA489-4D1D-436E-AA03-28C85FE7D0ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD8D9AD-E16F-416E-9287-D96757697A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD8D9AD-E16F-416E-9287-D96757697A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD8D9AD-E16F-416E-9287-D96757697A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD8D9AD-E16F-416E-9287-D96757697A37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F59F11BE-C0C4-425A-976F-138B08FAA047} = {19A9E1D8-7787-461E-AEDE-FDD1FE73B0F7}
+		{AAD8D9AD-E16F-416E-9287-D96757697A37} = {19A9E1D8-7787-461E-AEDE-FDD1FE73B0F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28AFEB3A-4CE8-4FDA-AE69-D4571222E64A}
