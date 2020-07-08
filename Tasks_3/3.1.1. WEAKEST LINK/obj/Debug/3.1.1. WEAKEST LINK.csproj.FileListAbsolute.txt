@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\bin\Debug\_3._1._1.WEAKEST_LINK.exe.config
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\bin\Debug\_3._1._1.WEAKEST_LINK.exe
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\bin\Debug\_3._1._1.WEAKEST_LINK.pdb
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\obj\Debug\3.1.1. WEAKEST LINK.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\obj\Debug\_3._1._1.WEAKEST_LINK.exe
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\obj\Debug\_3._1._1.WEAKEST_LINK.pdb
+C:\Users\user\source\repos\Task_3\3.1.1. WEAKEST LINK\obj\Debug\3.1.1. WEAKEST LINK.csprojAssemblyReference.cache

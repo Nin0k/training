@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\bin\Debug\_3._1._2.TEXT_ANALYSIS.exe.config
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\bin\Debug\_3._1._2.TEXT_ANALYSIS.exe
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\bin\Debug\_3._1._2.TEXT_ANALYSIS.pdb
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\obj\Debug\3.1.2. TEXT ANALYSIS.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\obj\Debug\_3._1._2.TEXT_ANALYSIS.exe
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\obj\Debug\_3._1._2.TEXT_ANALYSIS.pdb
+C:\Users\user\source\repos\Task_3\3.1.2. TEXT ANALYSIS\obj\Debug\3.1.2. TEXT ANALYSIS.csprojAssemblyReference.cache
