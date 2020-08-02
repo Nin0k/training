@@ -136,6 +136,7 @@ namespace _3._2._1.DYNAMIC_ARRAY
         {
             return GetEnumerator();
         }
+		
         public int Length { get; set; }
         public int Capacity
         {

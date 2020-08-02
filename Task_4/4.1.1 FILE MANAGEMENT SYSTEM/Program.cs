@@ -23,8 +23,7 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
                             Console.WriteLine("Задайте путь к папке, которую требуется отслеживать.");
                             Console.WriteLine(@"Формат ввода: D:\Storage.");
                             string path = Console.ReadLine();
-                            //string path = @"D:\Storage\";
-
+                           
                             if (!Directory.Exists(path))
                             {
                                 Console.WriteLine("Такой папки не существует или путь введен неверно.");
@@ -41,10 +40,12 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
                             break;
 
                         case 3:
+
                             Environment.Exit(0);
                             break;
 
                         default:
+
                             Console.WriteLine("К сожалению, такого режима нет");
                             break;
                     }

@@ -5,19 +5,15 @@ using Newtonsoft.Json;
 
 namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
 {
-    public class Backup
+    internal class Backup
     {
-        public Backup(string path)
+        internal Backup(string path)
         {
-            // сохранение данных
-            //string path = @"D:\Storage\";
             string pathBackup = @"D:\Backup storage\backup.json";
             string filter = "*.txt";
             string[] files = Directory.GetFiles(path, filter, SearchOption.AllDirectories);
 
             StructureJSON fileJSON = new StructureJSON();
-
-            fileJSON.DateTime = DateTime.UtcNow.ToString();
 
             List<Files> listFiles = new List<Files>();
 
@@ -34,6 +30,8 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
             }
 
             fileJSON.Files = listFiles;
+            fileJSON.DateTime = DateTime.UtcNow.ToString();
+
             StreamWriter sw = new StreamWriter(File.Open(pathBackup, FileMode.Append));
            
             sw.WriteLine(JsonConvert.SerializeObject(fileJSON));

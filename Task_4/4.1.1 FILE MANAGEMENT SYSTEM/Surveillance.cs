@@ -5,16 +5,17 @@ using Newtonsoft.Json;
 
 namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
 {
-    public class Surveillance
+    internal class Surveillance
     {
-        static StructureLog fileLog = new StructureLog();
-        static string path;
-        static string pathLog = @"D:\Backup storage";
-        static string filter = "*.txt";
+        private static readonly StructureLog fileLog = new StructureLog();
+        private static readonly string pathLog = @"D:\Backup storage";
+        private static readonly string filter = "*.txt";
+
+        public static string Path { get; set; }
 
         public Surveillance(string newPath)
         {
-            path = newPath;
+            Path = newPath;
 
             FileStream fs = File.Open(pathLog+"\\log.json", FileMode.Open, FileAccess.ReadWrite);
             fs.SetLength(0);
@@ -26,7 +27,7 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private static void Run()
         {
-            using (FileSystemWatcher watcher = new FileSystemWatcher(path, filter))
+            using (FileSystemWatcher watcher = new FileSystemWatcher(Path, filter))
             {
                 watcher.IncludeSubdirectories = true;
                
@@ -104,7 +105,7 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
             sw.WriteLine(JsonConvert.SerializeObject(fileLog));
             sw.Close();
 
-            new Backup(path);
+            new Backup(Path);
         }
     }
 }

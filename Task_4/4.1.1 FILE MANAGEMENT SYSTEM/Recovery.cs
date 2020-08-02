@@ -5,11 +5,12 @@ using Newtonsoft.Json;
 
 namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
 {
-    class Recovery
+    internal class Recovery
     {
-        string pathBackup = @"D:\Backup storage";
-        private readonly Dictionary<int, List<Files>> list = new Dictionary<int, List<Files>>();
-        private readonly List<String> listData = new List<String>();
+        readonly string pathBackup = @"D:\Backup storage";
+        readonly string filter = "*.txt";
+        readonly Dictionary<int, List<Files>> list = new Dictionary<int, List<Files>>();
+        readonly List<String> listData = new List<String>();
         public Recovery()
         {
             DirectoryInfo dirInfo = new DirectoryInfo(pathBackup);
@@ -49,6 +50,7 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
 
                     if (int.TryParse(Console.ReadLine(), out int selectedDate))
                     {
+                        DeletOldFiles(selectedDate);
 
                         foreach (var item in list[selectedDate])
                         {
@@ -62,18 +64,9 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
 
         void ExtractionFile(string pathFale, string fileContents, int selectedDate)
         {
-            string[] pathMass = pathFale.Split(new char[] { '\\' });
-            string path1 = "";
+            string pathFolder = ParsePath(pathFale);
 
-            path1 = String.Concat(path1, pathMass[0]);
-
-            for (int i = 1; i < pathMass.Length - 1; i++)
-            {
-                path1 = String.Concat(path1, "\\");
-                path1 = String.Concat(path1, pathMass[i]);
-            }
-
-            DirectoryInfo dirInfo = new DirectoryInfo(path1);
+            DirectoryInfo dirInfo = new DirectoryInfo(pathFolder);
 
             if (!dirInfo.Exists)
             {
@@ -88,7 +81,36 @@ namespace _4._1._1_FILE_MANAGEMENT_SYSTEM
             sw.Close();
         }
 
-        void NoBackup ()
+        void DeletOldFiles(int selectedDate)
+        {
+            foreach (var item in list[selectedDate])
+            {
+                string pathFale = ParsePath(item.Name);
+
+                string[] txtList = Directory.GetFiles(pathFale, filter);
+                foreach (string f in txtList)
+                {
+                    File.Delete(f);
+                }
+            }
+        }
+
+        string ParsePath(string pathFale)
+        {
+            string[] pathMass = pathFale.Split(new char[] { '\\' });
+            string pathFolder = "";
+
+            pathFolder = String.Concat(pathFolder, pathMass[0]);
+
+            for (int i = 1; i < pathMass.Length - 1; i++)
+            {
+                pathFolder = String.Concat(pathFolder, "\\");
+                pathFolder = String.Concat(pathFolder, pathMass[i]);
+            }
+            return pathFolder;
+        }
+
+        void NoBackup()
         {
             Console.WriteLine("Не найдено ни одной резервной копии.");
         }
