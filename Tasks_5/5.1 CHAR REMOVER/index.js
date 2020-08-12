@@ -11,7 +11,7 @@ function charRemover(str, repeatedChar) {
             rezult.push(str[i]);
         }
     }
-    rezultString = rezult.join('');
+    var rezultString = rezult.join('');
     console.log(rezultString);
 }
 
