@@ -1,0 +1,26 @@
+*  {
+    box-sizing: border-box;  
+    font-size: 14px; 
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.5;
+}
+.menu {
+    width: 200px;
+    margin:0 auto;
+    background: #f9e497;
+    border: 1px solid #000000;
+    border-radius:5%;
+    box-shadow: 5px 5px #880000;
+    color: #880000;
+    }
+
+ul {
+    width: 190px;
+    margin: 0px; 
+    padding: 7px;
+   }
+
+li {
+    padding: 0px 0px 3px 0px ;
+    list-style-type: none; 
+   }
