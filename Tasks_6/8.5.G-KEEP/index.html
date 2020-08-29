@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>G-KEEP</title>
+</head>
+<body>
+    
+    <hr>
+    
+    <div class="search">
+        <img src="img/loupe.png" id="startSearch"/>
+        <input placeholder="Поиск" type="search" class="box-search" id="inputSearch"/>
+        <img src="img/close.png" id="endSearch"/>
+        
+    </div>
+    <hr>
+
+    <div id="content"></div>
+
+    <button class="openModal" onclick="location.href='#openModal'">+</button>
+
+    <div id="openModal" class="modal-window">
+       <div class="modal-item">
+            <input id="header0" type="text" placeholder="Введите заголовок">
+            <textarea id="text0" placeholder="Текст заметки"></textarea>
+            <button id="save">Создать</button>
+            <button id="exit" onclick="location.href='#close'">Закрыть</button>
+        </div>
+    </div>
+
+    <div id="openModalEdit" class="modal-window edit">
+        <div class="modal-item">
+             <input id="headerEdit" type="text" placeholder="Введите заголовок">
+             <textarea id="textEdit" placeholder="Текст заметки"></textarea>
+             <hr>
+             <button id="saveEdit">Сохранить</button>
+             <button id="exitEdit" onclick="location.href='#close'">Закрыть</button>
+         </div>
+     </div>
+    <script type="module" src="js/service.js" ></script>
+    <script type="module" src="js/script.js" ></script>
+
+</body>
+</html>
