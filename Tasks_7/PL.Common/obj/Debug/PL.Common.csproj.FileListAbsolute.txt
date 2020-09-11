@@ -1,0 +1,9 @@
+C:\Users\user\source\repos\Tasks_7\PL.Common\bin\Debug\PL.Common.dll
+C:\Users\user\source\repos\Tasks_7\PL.Common\bin\Debug\PL.Common.pdb
+C:\Users\user\source\repos\Tasks_7\PL.Common\obj\Debug\PL.Common.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Tasks_7\PL.Common\obj\Debug\PL.Common.dll
+C:\Users\user\source\repos\Tasks_7\PL.Common\obj\Debug\PL.Common.pdb
+C:\Users\user\source\repos\Tasks_7\PL.Common\obj\Debug\PL.Common.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Tasks_7\PL.Common\bin\Debug\Entitiens.dll
+C:\Users\user\source\repos\Tasks_7\PL.Common\bin\Debug\Entitiens.pdb
+C:\Users\user\source\repos\Tasks_7\PL.Common\obj\Debug\PL.Common.csproj.CopyComplete

@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\DAL.Dependencies.dll
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\DAL.Dependencies.pdb
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\DAL.Common.dll
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\DAL.Json.dll
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\Entitiens.dll
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\DAL.Common.pdb
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\DAL.Json.pdb
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\Entitiens.pdb
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\obj\Debug\DAL.Dependencies.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\obj\Debug\DAL.Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\obj\Debug\DAL.Dependencies.csproj.CopyComplete
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\obj\Debug\DAL.Dependencies.dll
+C:\Users\user\source\repos\Tasks_7\DAL.Dependencies\obj\Debug\DAL.Dependencies.pdb
