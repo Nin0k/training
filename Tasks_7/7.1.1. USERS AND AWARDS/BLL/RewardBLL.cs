@@ -4,18 +4,14 @@ using DAL.Dependencies;
 using Entitiens;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
     public class RewardBLL : IRewardBLL
     {
-         UsersBLL user = new UsersBLL();
-         AwardsBLL award = new AwardsBLL();
-        // List<Awards> awardsList = new List<Awards>();
-
+        UsersBLL user = new UsersBLL();
+        AwardsBLL award = new AwardsBLL();
+        
         private IRewardDAL _rewardDAL;
         public RewardBLL()
         {
@@ -34,7 +30,6 @@ namespace BLL
                 var foundUser = user.GetUserByID(userID);
                 var foundAward = award.GetAwardByID(awardID);
 
-                //new Rewards(foundUser, foundAward);
                 List<Awards> awardsList = new List<Awards>();
                 awardsList.Add(foundAward);
                 _rewardDAL.SaveRaward(new Rewards(foundUser, awardsList));
@@ -42,7 +37,6 @@ namespace BLL
             }
              catch
             {
-                    // TODO: checking more exceptions
                 return false;
             }
             

@@ -52,10 +52,7 @@ namespace DAL.Json
 
             string fileName = fileBeginning + reward.User.ID + fileExtension;
             string fullFilePath = LocalDataPath + fileName;
-
             var userStr = JsonConvert.SerializeObject(reward);
-            var rewardStr = JsonConvert.SerializeObject(reward.Award);
-            
 
             if (!File.Exists(fullFilePath))
             {
@@ -88,7 +85,6 @@ namespace DAL.Json
             }
             var unificationList = listAwards.Concat(awards);
             return(JsonConvert.SerializeObject(new Rewards(rewriteUser, unificationList.ToList())));
-
         }
     }
 }

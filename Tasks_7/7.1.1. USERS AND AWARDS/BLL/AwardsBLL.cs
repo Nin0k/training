@@ -4,9 +4,6 @@ using DAL.Dependencies;
 using Entitiens;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -22,13 +19,11 @@ namespace BLL
         {
             try
             {
-                // TODO: logging, send messages
                 _awardDAL.DeleteAward(id);
                 return true;
             }
             catch
             {
-                // TODO: checking more exceptions
                 return false;
             }
         }
@@ -47,13 +42,11 @@ namespace BLL
         {
             try
             {
-                // TODO: logging, send messages
                 _awardDAL.SaveAward(award);
                 return true;
             }
             catch
             {
-                // TODO: checking more exceptions
                 return false;
             }
         }

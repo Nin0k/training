@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Json
 {
@@ -18,7 +16,6 @@ namespace DAL.Json
 
         public IEnumerable<Users> GetAllUsers()
         {
-            //TODO
             DirectoryInfo directory = new DirectoryInfo(LocalDataPath + "\\");
             if (!directory.Exists)
             {

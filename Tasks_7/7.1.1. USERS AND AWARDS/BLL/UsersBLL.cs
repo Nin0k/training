@@ -21,21 +21,17 @@ namespace BLL
         {
             try
             {
-                // TODO: logging, send messages
                 _usersDAL.DeleteUser(id);
                 return true;
             }
             catch
             {
-                // TODO: checking more exceptions
                 return false;
             }
         }
 
         public IEnumerable<Users> GetAllUsers()
         {
-            //throw new NotImplementedException();
-            // TODO: logging, send messages
             return _usersDAL.GetAllUsers();
         }
 
@@ -48,13 +44,11 @@ namespace BLL
         {
             try
             {
-                // TODO: logging, send messages
                 _usersDAL.SaveUser(user);
                 return true;
             }
             catch
             {
-                // TODO: checking more exceptions
                 return false;
             }
         }
