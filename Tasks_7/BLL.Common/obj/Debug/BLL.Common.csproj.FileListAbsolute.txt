@@ -1,9 +1,0 @@
-C:\Users\user\source\repos\Tasks_7\BLL.Common\bin\Debug\BLL.Common.dll
-C:\Users\user\source\repos\Tasks_7\BLL.Common\bin\Debug\BLL.Common.pdb
-C:\Users\user\source\repos\Tasks_7\BLL.Common\bin\Debug\Entitiens.dll
-C:\Users\user\source\repos\Tasks_7\BLL.Common\bin\Debug\Entitiens.pdb
-C:\Users\user\source\repos\Tasks_7\BLL.Common\obj\Debug\BLL.Common.csprojAssemblyReference.cache
-C:\Users\user\source\repos\Tasks_7\BLL.Common\obj\Debug\BLL.Common.csproj.CoreCompileInputs.cache
-C:\Users\user\source\repos\Tasks_7\BLL.Common\obj\Debug\BLL.Common.csproj.CopyComplete
-C:\Users\user\source\repos\Tasks_7\BLL.Common\obj\Debug\BLL.Common.dll
-C:\Users\user\source\repos\Tasks_7\BLL.Common\obj\Debug\BLL.Common.pdb
