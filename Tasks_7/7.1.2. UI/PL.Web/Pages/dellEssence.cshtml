@@ -1,0 +1,24 @@
+﻿@using PL.Web
+@{
+    var WebUserPL = new WebUsersPL();
+    var WebAwardPL = new WebAwardsPL();
+
+    var type = Request["type"];
+
+    if (type == "user")
+    {
+
+        if(Guid.TryParse(Request["id"], out Guid id))
+        {
+            WebUserPL.DeleteUser(id);
+        }
+
+    }
+    else if (type == "award")
+    {
+        if (Guid.TryParse(Request["id"], out Guid id))
+        {
+            WebAwardPL.DeleteAward(id);
+        }
+    }
+}

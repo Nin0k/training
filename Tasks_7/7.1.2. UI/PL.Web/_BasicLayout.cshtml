@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users and Awards</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+    
+</head>
+<body>
+    <header class="header">
+        <nav class="menu">
+            <ul>
+                <li><a href="~/index.cshtml" class="current">Пользователи</a></li>
+                <li><a href="#">Награды</a></li>
+                <li><a href="#">Награжденные пользователи</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+    <script src="~/Scripts/script.js"></script>
+</body>
+</html>
