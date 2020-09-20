@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/_BasicLayout.cshtml";
+}
+<div class="container">
+    <div class="user_form">
+        @RenderPage("~/Pages/addUser.cshtml")
+    </div>
+
+    <div class="section">
+        @RenderPage("~/Pages/users.cshtml")
+    </div>
+    <div class="user_form">
+        @RenderPage("~/Pages/addAward.cshtml")
+    </div>
+    <div class="section">
+        @RenderPage("~/Pages/awards.cshtml")
+    </div>
+</div>
+<div id="forModal"></div>
+@RenderPage("~/Pages/userModal.cshtml")
+
+

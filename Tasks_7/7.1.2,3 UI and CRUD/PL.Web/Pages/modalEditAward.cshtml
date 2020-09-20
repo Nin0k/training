@@ -1,0 +1,35 @@
+﻿@using PL.Web
+@using Entitiens
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Converters
+
+@{
+    var WebAwardPL = new WebAwardsPL();
+
+    var ID = Request["idAward"];
+
+    if (ID != null)
+    {
+        Guid.TryParse(ID, out Guid idAward);
+        Awards award = WebAwardPL.GetAwardByID(idAward);
+
+        <div id="openModalEditAward" class="modal-window">
+            <div class="modal-item modal-edit">
+                <div class="str infoUser">
+
+                    <div class="block_avatar"><img src="~/Content/image/award.png" alt="avatar" /></div>
+                    <input type="hidden" id="current_idAwardEdit" value="@award.IDAward">
+                    <input type="text" id="newTitleAwardEdit" value="@award.Title" />
+                    
+                    <div class="buttonModal">
+                        <button id="saveUser" class="saveEditAward" onclick="saveEditAward()">Сохранить</button>
+                        <button id="exit" class="closeEditAward" onclick="location.href='#close'">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+}
+

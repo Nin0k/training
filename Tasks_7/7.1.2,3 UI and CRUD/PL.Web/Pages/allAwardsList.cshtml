@@ -1,0 +1,37 @@
+﻿@using PL.Web
+
+@{
+    var WebAwardsPL = new WebAwardsPL();
+    var awards = WebAwardsPL.DisplayAllAwards();
+}
+
+@if (awards.Count() > 0) {
+    foreach (var item in awards)
+    {
+    <div class="block_award">
+        <div class="block_avatar"><img src="~/Content/image/award.png" alt="avatar" /></div>
+        <div class="name">@item.Title</div>
+        <div>
+            <button type="button" class="award_allUser">
+                <img src="~/Content/image/users.png" alt="award" id="user_@(item.IDAward)" title="Пользователи с наградой" />
+            </button>
+        </div>
+        <div>
+            <button type="button" class="award_edit">
+                <img src="~/Content/image/edit.png" alt="edit" id="edit_@item.IDAward" title="Редактировать награду" />
+            </button>
+        </div>
+        <div>
+            <button type="button" class="award_del">
+                <img src="~/Content/image/remove.png" alt="remove" id="@item.IDAward" title="Удалить награду" />
+            </button>
+        </div>
+    </div>
+     }
+ }
+ else
+  {
+<div class="block_user">
+    <p>Нет сохраненных наград</p>
+</div>
+}
