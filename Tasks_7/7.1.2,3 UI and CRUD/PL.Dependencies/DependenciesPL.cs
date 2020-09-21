@@ -7,6 +7,6 @@ namespace PL.Dependencies
     {
         private static IUserPL _userPL;
         public static IUserPL UserPL => _userPL ?? (_userPL = new ConsoleUserPL());
-       // public static IUserPL UserPL => _userPL ?? (_userPL = new );
+       
     }
 }

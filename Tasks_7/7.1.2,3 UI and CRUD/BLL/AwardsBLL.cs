@@ -28,15 +28,9 @@ namespace BLL
             }
         }
 
-        public IEnumerable<Awards> GetAllAwards()
-        {
-            return _awardDAL.GetAllAwards();
-        }
+        public IEnumerable<Awards> GetAllAwards() => _awardDAL.GetAllAwards();
 
-        public Awards GetAwardByID(Guid id)
-        {
-            return _awardDAL.GetAwardByID(id);
-        }
+        public Awards GetAwardByID(Guid id) => _awardDAL.GetAwardByID(id);
 
         public bool SaveAward(Awards award)
         {

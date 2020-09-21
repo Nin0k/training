@@ -1,20 +1,4 @@
-﻿/*.openModal {
-    width: 50px;
-    height: 50px;
-    font-size: 18pt;
-    background: #28b6f6;
-    border-radius: 50%;
-    border: none;
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-}
-
-.openModal:hover {
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.4);
-}*/
-
-.modal-window {
+﻿.modal-window {
     position: fixed;
     top: 0;
     right: 0;
@@ -26,10 +10,10 @@
     pointer-events: none;
 }
 
-    .modal-window:target {
-        display: block;
-        pointer-events: auto;
-    }
+.modal-window:target {
+    display: block;
+    pointer-events: auto;
+}
 
 .modal-item {
     width: 70%;
@@ -44,6 +28,7 @@
     justify-content: space-around;
     align-items: center;
 }
+
 .str {
     display: flex;
     justify-content: center;
@@ -51,21 +36,25 @@
     flex-direction: column;
     width: 80%;
 }
+
 .all_userAwards {
     display: flex;
     flex-wrap: wrap;
 }
+
 .infoUser {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
 }
+
 .str h3 {
     position: relative;
     bottom: 50px;
     right: 30px;
 }
+
 .buttonModal {
     display: flex;
     flex-direction: row;
@@ -78,9 +67,11 @@
     display: flex;
     flex-direction: row;
 }
+
 .buttonModal button {
     margin: 0 3px;
 }
+
 .infoUser input[type=date] {
     padding-bottom: 20px;
     padding-top: 15px;
@@ -111,14 +102,13 @@
     display: inline-block;
 }
 
-    .modal-item button:hover, #addRewardForUser:hover {
-        background: #ebebeb;
-    }
+.modal-item button:hover, #addRewardForUser:hover {
+    background: #ebebeb;
+}
 
 .close {
     position: relative;
     top: 60px;
-    /*left: 60px;*/
 }
 
 .line {
@@ -128,6 +118,7 @@
     background: #e7e7e7;
     margin: 0 5px;
 }
+
 .select-css {
     display: block;
     font-size: 16px;
@@ -138,22 +129,22 @@
     margin: 0;
     border: 1px solid #aaa;
     border-radius: .5em;
-
 }
+
 .select-css:hover {
-        border-color: #888;
+    border-color: #888;
 }
 
 .select-css:focus {
-        border-color: #aaa;
-        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-        color: #222;
-        outline: none;
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    color: #222;
+    outline: none;
 }
 
 .select-css option {
-        font-weight: normal;
-    }
+    font-weight: normal;
+}
 
 #addRewardForUser {
     width: 50px;

@@ -19,9 +19,7 @@ namespace PL.Web
         public WebUsersPL() => _bll = DependenciesBLL.UserBLL;
         public bool DeleteUser(Guid id) => _bll.DeleteUser(id);
         public IEnumerable<Users> DisplayAllUsers() => _bll.AllUsers;
-
         public Users GetUserByID(Guid id) => _bll.GetUserByID(id);
-
         public bool AddUser(string name, string data)
         {
             if (DateTime.TryParse(data, cultureInfo, styles, out DateTime birthday))

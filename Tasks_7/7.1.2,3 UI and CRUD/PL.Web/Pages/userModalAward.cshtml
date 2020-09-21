@@ -15,8 +15,6 @@
         Awards award = WebAwardPL.GetAwardByID(idAward);
         users = WebRewardPL.GetUsersWithCurrentReward(idAward);
 
-
-
         <div id="openModalAward" class="modal-window">
             <div class="modal-item">
                 <div class="str infoUser">
@@ -38,7 +36,6 @@
                          </div>
                         }
 
-
                         @if (users.Count() == 0)
                         {
                             <p>Данной наградой еще никто не награжден.</p>
@@ -52,7 +49,5 @@
                 </div>
             </div>
         </div>
-
     }
-
 }

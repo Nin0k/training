@@ -157,5 +157,37 @@ namespace DAL.Json
                 }
             return listUsers;
         }
+
+        public void EditAward(Awards newAward)
+        {
+            List<Users> allUser = GetUsersWithCurrentReward(newAward.IDAward);
+            foreach (var item in allUser)
+            {
+                string fileName = fileBeginning + item.ID + fileExtension;
+                string fullFilePath = LocalDataPath + fileName;
+                List<Awards> listAwards = new List<Awards>();
+
+                using (var reader = new StreamReader(fullFilePath))
+                {
+                    var allRead = JsonConvert.DeserializeObject<Rewards>(reader.ReadToEnd());
+                    foreach (var award in allRead.Award)
+                    {
+                        if (award.IDAward == newAward.IDAward)
+                        {
+                            listAwards.Add(newAward);
+                        }
+                        else
+                        {
+                            listAwards.Add(award);
+                        }
+                    }
+                }
+                using (StreamWriter writer = new StreamWriter(fullFilePath, false))
+                {
+                    writer.Write(JsonConvert.SerializeObject(new Rewards(item, listAwards)));
+                }
+            }
+           
+        }
     }
 }

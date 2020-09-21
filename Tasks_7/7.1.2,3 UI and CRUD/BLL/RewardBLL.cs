@@ -14,8 +14,6 @@ namespace BLL
         
         private IRewardDAL _rewardDAL;
 
-       
-
         public RewardBLL()
         {
             _rewardDAL = DependenciesDAL.RewardDAL;
@@ -104,34 +102,11 @@ namespace BLL
                 return false;
             }
         }
-        public bool EditAward(Awards newAward)//TODO
+        public bool EditAward(Awards newAward)
         {
             try
             {
-                IEnumerable<Rewards> reward = GetAllRewards();
-                List <Users> allUser = GetUsersWithCurrentReward(newAward.IDAward);
-
-                foreach (var rewardUser in allUser)
-                {
-                    foreach (var allAwardAndUser in reward)
-                    {
-                        if (rewardUser.ID == allAwardAndUser.User.ID)
-                        {
-                            _rewardDAL.DeleteAwardReward(newAward.IDAward);
-                            foreach (var award in allAwardAndUser.Award)
-                            {
-                                if (award.IDAward == newAward.IDAward)
-                                {
-                                    RewardUser(rewardUser.ID, newAward.IDAward);
-                                }
-                                else
-                                {
-                                    RewardUser(rewardUser.ID, award.IDAward);
-                                }
-                            }
-                        }
-                    }
-                }
+                _rewardDAL.EditAward(newAward);
                 return true;
             }
             catch
