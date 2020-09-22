@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/_BasicLayout.cshtml";
+}
+@if (User.Identity.IsAuthenticated)
+{
+
+    <div class="container">
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="user_form">
+                @RenderPage("~/Pages/addUser.cshtml")
+            </div>
+        }
+
+        <div class="section">
+            @RenderPage("~/Pages/users.cshtml")
+        </div>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="user_form">
+                @RenderPage("~/Pages/addAward.cshtml")
+            </div>
+        }
+            <div class="section">
+                @RenderPage("~/Pages/awards.cshtml")
+            </div>
+        </div>
+    <div id="forModal"></div>
+    @RenderPage("~/Pages/userModal.cshtml")
+}
+else
+{
+    @RenderPage("~/login.cshtml")
+}
+

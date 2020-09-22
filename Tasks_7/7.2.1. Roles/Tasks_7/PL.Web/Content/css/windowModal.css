@@ -1,0 +1,177 @@
+﻿.modal-window {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99999;
+    display: none;
+    pointer-events: none;
+}
+
+.modal-window:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.modal-item {
+    width: 70%;
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.str {
+    display: flex;
+    justify-content: center;
+    align-content: space-evenly;
+    flex-direction: column;
+    width: 80%;
+}
+
+.all_userAwards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.infoUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.str h3 {
+    position: relative;
+    bottom: 50px;
+    right: 30px;
+}
+
+.buttonModal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 40px;
+}
+
+.buttonModal div {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonModal button {
+    margin: 0 3px;
+}
+
+.infoUser input[type=date] {
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+.modal-item input, textarea {
+    width: 100%;
+    border: none;
+    padding: 10px;
+}
+
+.modal-item input:first-child {
+    font-size: 16pt;
+}
+
+.modal-item textarea {
+    height: 40px;
+    resize: none;
+    font-family: sans-serif;
+}
+
+.modal-item button, login_button {
+    border: 1px solid #C7E6EE;
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+    background: #ffffff;
+    display: inline-block;
+}
+
+.modal-item button:hover, #addRewardForUser:hover {
+    background: #ebebeb;
+}
+
+.close {
+    position: relative;
+    top: 60px;
+}
+
+.line {
+    width: 2px;
+    height: 220px;
+    margin-top: 15px;
+    background: #e7e7e7;
+    margin: 0 5px;
+}
+
+.select-css {
+    display: block;
+    font-size: 16px;
+    padding: .6em 1.4em .5em .8em;
+    width: 150px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    border-radius: .5em;
+}
+
+.select-css:hover {
+    border-color: #888;
+}
+
+.select-css:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    color: #222;
+    outline: none;
+}
+
+.select-css option {
+    font-weight: normal;
+}
+
+#addRewardForUser {
+    width: 50px;
+    height: 50px;
+    font-size: 18pt;
+    background: #ffffff;
+    border: 1px solid #C7E6EE;
+    margin-left: 10px;
+}
+
+.img_award {
+    position: relative;
+}
+
+.delForUser, .delForAward {
+    position: absolute !important;
+    bottom: 15px !important;
+    right: 1px !important;
+    height: 25% !important;
+    width: 25% !important;
+}
+
+.modal-edit {
+    width: 40%;
+}
+
+.modal-edit input {
+    border: 1px solid #C7E6EE;
+    margin: 5px 0;
+}

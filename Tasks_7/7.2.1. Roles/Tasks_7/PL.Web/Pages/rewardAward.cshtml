@@ -1,0 +1,19 @@
+﻿@using PL.Web
+
+@{
+    var WebUsersPL = new WebUsersPL();
+    var users = WebUsersPL.DisplayAllUsers();
+
+    <div>
+        <select class="select-css" id="newUserForAward">
+            <option value="reward0">Наградить</option>
+            @foreach (var item in users)
+            {
+               var time = item.DateOfBirth;
+               <option value="@item.ID">@(item.Name)(@(time.Day).@(time.Month).@(time.Year))</option>
+            }
+        </select>
+        <button id="addRewardForUser" class="addForUser" onclick="addReward('award')" title="Добавить награду пользователю">+</button>
+    </div>
+}
+

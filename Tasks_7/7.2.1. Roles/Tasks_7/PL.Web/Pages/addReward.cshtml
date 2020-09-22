@@ -1,0 +1,12 @@
+﻿@using PL.Web
+@{
+    var WebRewardPL = new WebRewardsPL();
+
+    if (Guid.TryParse(Request["idUser"], out Guid idUser))
+    {
+        if (Guid.TryParse(Request["idAward"], out Guid idAward))
+        {
+            var newUser = WebRewardPL.RewardUser(idUser, idAward);
+        }
+    }
+}

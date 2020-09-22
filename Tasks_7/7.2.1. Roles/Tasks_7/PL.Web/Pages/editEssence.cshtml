@@ -1,0 +1,34 @@
+﻿@using PL.Web;
+@using Entitiens;
+
+@{
+    var WebUserPL = new WebUsersPL();
+    var WebAwardPL = new WebAwardsPL();
+    var WebRewardPL = new WebRewardsPL();
+
+    var type = Request["type"];
+
+    if (type == "user")
+    {
+        if (Guid.TryParse(Request["idUser"], out Guid idUser))
+        {
+            var name = Request["nameUser"];
+            var birthday = Request["birthdayUser"];
+
+            WebUserPL.EditUser(idUser, name, birthday);
+            Users newUser = WebUserPL.GetUserByID(idUser);
+            WebRewardPL.EditUser(newUser);
+        }
+    }
+    else if (type == "award")
+    {
+        if (Guid.TryParse(Request["idAward"], out Guid idAward))
+        {
+            var title = Request["title"];
+            WebAwardPL.EditAward(idAward, title);
+            Awards newAward = WebAwardPL.GetAwardByID(idAward);
+            WebRewardPL.EditAward(newAward);
+        }
+    }
+}
+

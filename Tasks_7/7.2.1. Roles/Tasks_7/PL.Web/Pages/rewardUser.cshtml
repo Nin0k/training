@@ -1,0 +1,17 @@
+﻿@using PL.Web
+
+@{
+    var WebAwardsPL = new WebAwardsPL();
+    var awards = WebAwardsPL.DisplayAllAwards();
+
+    <div>
+    <select class="select-css" id="newRewardForUser">
+        <option value="reward0">Наградить</option>
+        @foreach (var item in awards)
+        {
+            <option value="@item.IDAward">@(item.Title)</option>
+        }
+    </select>
+    <button id="addRewardForUser" class="addForUser" onclick="addReward('user')" title="Добавить награду пользователю">+</button>
+        </div>
+}

@@ -1,0 +1,17 @@
+﻿
+<h2><a name="user">Пользователи</a></h2>
+<div class="blocks">
+    <div class="block_user block_header">
+        <div class="user_header">Аватар</div>
+        <div class="user_header">Имя</div>
+        <div class="user_header" style="margin-left: 50px;">Дата рождения</div>
+        <div class="user_header">Возраст</div>
+        <div class="user_header">Награды</div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="user_header">Редактировать</div>
+            <div class="user_header">Удалить</div>
+        }
+        </div>
+    @RenderPage("~/Pages/allUsersList.cshtml")
+</div>
