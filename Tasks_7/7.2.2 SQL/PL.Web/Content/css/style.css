@@ -1,0 +1,191 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #f5f5f5;
+    font-size: 12pt;
+    font-family: "Lucida Sans Unicode" sans-serif;
+}
+.header {
+    display: flex;
+    align-items: center;
+    background: #008db0;
+    justify-content: center;
+    font-size: 14pt;
+    height: 70px;
+}
+
+.menu {
+    text-align: center;
+}
+.menu ul {
+    display: flex;
+    list-style: none; 
+    margin: 0; 
+    padding-left: 0; 
+}
+
+.menu ul li {
+    margin: 20px 10px;
+}
+.menu a {
+    display: inline-block;
+    text-decoration: none; 
+    color: white;
+    padding: 10px 15px;
+}
+.menu a:hover {
+    background: #005D72;
+    border-radius: 2px;
+}
+h2 {
+    color: #005D72;
+    padding: 20px 0;
+}
+h3 {
+    color: #454545;
+}
+
+.container, .section {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section {
+    width: 100%;
+}
+.user_form, .login_form {
+    width: 100%;
+    margin: 20px auto;
+    border: 2px solid #008db0;
+    border-radius: 5px;
+}
+
+form {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+form label {
+    padding-right: 10px;
+}
+.input {
+    border: 1px solid #C7E6EE;
+    width: 140px;
+    height: 25px;
+}
+
+.blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-height: 350px;
+    overflow: auto;
+}
+
+.block_user, .block_award {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #C7E6EE;
+}
+
+.block_header {
+    display: flex;
+    justify-content: space-between;
+    background: #C7E6EE;
+}
+
+.user_header:first-child {
+    padding-left: 2%;
+}
+
+.user_header:nth-child(2) {
+    padding-left: 7%;
+}
+
+.block_avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+.user_del, .user_award, .user_add, .award_del, .award_allUser, .award_edit, .user_edit {
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background: #f5f5f5;
+}
+    .user_del:hover, .user_add:hover, .user_award:hover, .award_del:hover, .award_allUser:hover, .award_edit:hover, .user_edit:hover {
+        transform: scale(1.2);
+    }
+.name {
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.login_form {
+    width: 50%;
+    max-width: 400px;
+    height: 220px;
+    padding: 20px 0;
+}
+
+.login_form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start
+}
+
+.login_button {
+    background: #ffffff;
+    width: 150px;
+    border: 1px solid #C7E6EE;
+    font-size:14px;
+    margin: 5px;
+    padding: 5px;
+}
+.login_button:hover {
+    background: #f5f5f5;
+}
+.login_form div {
+    margin: 5px 0;
+ 
+}
+
+.login_label {
+    width: 70px;
+    margin-top: 3px;
+    display: inline-block;
+    float: left;
+    padding: 3px;
+}
+
+.login_input {
+    width: 170px;
+    padding: 5px 8px;
+}
+.login_form input[type=checkbox] {
+     margin: 0 5px;
+}
+.exit {
+    background: #008db0;
+    border: none;
+    position: absolute;
+    right: 20px;
+}
+.error {
+    color:#ff0000;
+    width:100%;
+}

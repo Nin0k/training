@@ -1,0 +1,35 @@
+﻿
+@{
+    DateTime today = DateTime.Now;
+    var month = today.Month;
+    string monthNow;
+    if (month < 10)
+    {
+        monthNow = String.Concat("0", month);
+    }
+    else
+    {
+        monthNow = month.ToString();
+    }
+
+    var day = today.Day;
+    string dayNow;
+    if (day < 10)
+    {
+        dayNow = String.Concat("0", day);
+    }
+    else
+    {
+        dayNow = day.ToString();
+    }
+}
+<form>
+    <h3>Добавить пользователя:</h3>
+    <div><label for="nameUser">Имя</label><input type="text" id="nameUser" class="input"></div>
+    <div><label for="birthday">День рождения</label><input type="date" id="birthday" class="input" max="@(today.Year)-@(monthNow)-@(dayNow)"></div>
+    <button type="button" class="user_add" id="addNewUser" onclick="addUser()">
+        <img src="~/Content/image/add-user.png" alt="add"  title="Сохранить нового пользователя"/>
+    </button>
+    <div id="text"></div>
+</form>
+

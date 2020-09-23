@@ -1,0 +1,59 @@
+﻿@using PL.Web
+@using Entitiens
+@*@using Newtonsoft.Json
+@using Newtonsoft.Json.Converters*@
+
+@{
+    var WebRewardPL = new WebRewardsPL();
+    var WebAwardPL = new WebAwardsPL();
+    List<Users> users;
+    var ID = Request["ID"];
+
+    if (ID != null)
+    {
+        Guid.TryParse(ID, out Guid idAward);
+        Awards award = WebAwardPL.GetAwardByID(idAward);
+        users = WebRewardPL.GetUsersWithCurrentReward(idAward);
+
+        <div id="openModalAward" class="modal-window">
+            <div class="modal-item">
+                <div class="str infoUser">
+                    <div class="block_avatar"><img src="~/Content/image/award.png" alt="avatar" /></div>
+                    <input type="hidden" id="current_idAward" value="@award.IDAward">
+                    <h2>@(award.Title)</h2>
+                </div>
+                <div class="line"></div>
+                <div class="str">
+                    <h3>Награды:</h3>
+                    <div class="all_userAwards">
+                        @foreach (var item in users)
+                        {
+                        <div class="block_avatar img_award">
+                            <input type="hidden" id="current_@award.IDAward" value="@item.ID">
+                            <img src="~/Content/image/no_avatar.jpg" alt="avatar" />
+                            <p>@item.Name</p>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <button class="delForAward" onclick="delReward()" title="Удалить награду у пользователя">-</button>
+                            }
+                            </div>
+                        }
+
+                        @if (users.Count() == 0)
+                        {
+                            <p>Данной наградой еще никто не награжден.</p>
+                        }
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="str buttonModal">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @RenderPage("~/Pages/rewardAward.cshtml")
+                    }
+                        <button id="exit" class="close" onclick="location.href='#close'">Закрыть</button>
+                    </div>
+            </div>
+        </div>
+    }
+}

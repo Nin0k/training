@@ -1,0 +1,79 @@
+﻿@using PL.Web
+@using Entitiens
+@*@using Newtonsoft.Json
+@using Newtonsoft.Json.Converters*@
+
+@{
+    var WebUserPL = new WebUsersPL();
+
+    var ID = Request["idUser"];
+
+    DateTime today = DateTime.Now;
+    var month = today.Month;
+    string monthNow;
+    if (month < 10)
+    {
+        monthNow = String.Concat("0", month);
+    }
+    else
+    {
+        monthNow = month.ToString();
+    }
+
+    var day = today.Day;
+    string dayNow;
+    if (day < 10)
+    {
+        dayNow = String.Concat("0", day);
+    }
+    else
+    {
+        dayNow = day.ToString();
+    }
+
+    if (ID != null)
+    {
+        Guid.TryParse(ID, out Guid idUser);
+        Users user = WebUserPL.GetUserByID(idUser);
+        var data = user.DateOfBirth;
+
+        string monthBirth;
+        if (data.Month < 10)
+        {
+            monthBirth = String.Concat("0", data.Month);
+        }
+        else
+        {
+            monthBirth = data.Month.ToString();
+        }
+        string dayBirth;
+        if (data.Day < 10)
+        {
+            dayBirth = String.Concat("0", data.Day);
+        }
+        else
+        {
+            dayBirth = data.Day.ToString();
+        }
+        var birthday = data.Year +"-"+ monthBirth + "-"+ dayBirth;
+
+        <div id="openModalEditUser" class="modal-window">
+            <div class="modal-item modal-edit">
+                <div class="str infoUser">
+
+                    <div class="block_avatar"><img src="~/Content/image/no_avatar.jpg" alt="avatar" /></div>
+                    <input type="hidden" id="current_idUserEdit" value="@user.ID">
+                    <input type="text" id="newNameUserEdit" value="@user.Name" />
+                    <input type="date" id="newBirthdayUserEdit" class="input" max="@(today.Year)-@(monthNow)-@(dayNow)" value="@(birthday)">
+                    
+                    <div class="buttonModal">
+                        <button id="saveUser" class="saveEdit" onclick="saveEditUser()">Сохранить</button>
+                        <button id="exit" class="closeEdit" onclick="location.href='#close'">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+}

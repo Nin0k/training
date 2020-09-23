@@ -1,0 +1,43 @@
+﻿@using PL.Web
+
+@{
+    var WebUserPL = new WebUsersPL();
+    var users = WebUserPL.DisplayAllUsers();
+}
+
+@if (users.Count() > 0)
+{
+    foreach (var item in users)
+    {
+    <div class="block_user">
+        <div class="block_avatar"><img src="~/Content/image/no_avatar.jpg" alt="avatar" /></div>
+        <div class="name">@item.Name</div>
+        <div>@(item.DateOfBirth.Day).@(item.DateOfBirth.Month).@(item.DateOfBirth.Year)</div>
+        <div>@item.Age</div>
+        <div>
+            <button type="button" class="user_award">
+                <img src="~/Content/image/quality.png" alt="award" id="award_@(item.ID)" title="Награды пользователя" />
+            </button>
+        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div>
+                <button type="button" class="user_edit">
+                    <img src="~/Content/image/edit.png" alt="edit" id="edit_@item.ID" title="Редактировать пользователя" />
+                </button>
+            </div>
+            <div>
+                <button type="button" class="user_del">
+                    <img src="~/Content/image/user.png" alt="remove" id="@item.ID" title="Удалить пользователя" />
+                </button>
+            </div>
+        }
+        </div>
+    }
+}
+else
+{
+    <div class="block_user">
+        <p>Нет сохраненных пользователей</p>
+        </div>
+}
