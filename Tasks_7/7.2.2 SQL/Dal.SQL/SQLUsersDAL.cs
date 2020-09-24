@@ -90,8 +90,9 @@ namespace Dal.SQL
         }
         public void SaveUser(Users user)//TODO
         {
-            Users oldUser = GetUserByID(user.ID);
-            if (oldUser.ID == user.ID)
+            IEnumerable<Users> allUsers = GetAllUsers();
+            
+            if (allUsers.Any(p => p.ID == user.ID))
             {
                 using (SqlConnection _connection = new SqlConnection(_connectionString))
                 {
@@ -110,10 +111,12 @@ namespace Dal.SQL
                     _connection.Open();
                     command.ExecuteReader();
                 }
+
             }
             else
             {
-                using (SqlConnection _connection = new SqlConnection(_connectionString))
+
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
                 {
                     var stProc = "Users_SaveUser";
 

@@ -87,8 +87,9 @@ namespace Dal.SQL
 
         public void SaveAward(Awards award)
         {
-            Awards oldAward = GetAwardByID(award.IDAward);
-            if (oldAward.IDAward == award.IDAward)
+            IEnumerable<Awards> allAwards = GetAllAwards();
+
+            if (allAwards.Any(p => p.IDAward == award.IDAward))
             {
                 using (SqlConnection _connection = new SqlConnection(_connectionString))
                 {
