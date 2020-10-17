@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Let's play!</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+
+</head>
+<body>
+    <header class="header">
+        <h1><a href="~/index.cshtml">Let's play!</a></h1>
+        <div class="button_entry">
+            <button>Вход</button>
+            <button>Регистрация</button>
+        </div>
+    </header>
+    <nav>
+        <div class="nav">
+            <ul>
+                <li><a href="~/Pages/witcher.cshtml">Witcher</a></li>
+
+                <li><a href="~/Pages/assassin.cshtml">Assassin’s Creed</a></li>
+
+                <li><a href="~/Pages/redemption.cshtml">Red Dead Redemption</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        @RenderBody()
+    </main>
+    <script src="~/Scripts/script.js"></script>
+</body>
+</html>
