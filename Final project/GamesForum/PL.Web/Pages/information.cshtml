@@ -1,5 +1,13 @@
 ﻿@{
     Layout = "~/_BasicLayout.cshtml";
 }
-
-@RenderPage("~/Pages/_topics_info.cshtml")
+@if (User.IsInRole("Admin"))
+{
+    <form id="info" class="form_addTopic">
+        @RenderPage("~/Pages/_addTopic.cshtml")
+    </form>
+}
+{
+<p>Вы должны войти или зарегистрироваться, чтобы создавать темы.</p>
+}
+@RenderPage("~/Pages/_topics_info_important.cshtml")

@@ -10,5 +10,6 @@ namespace PL.Common
     public interface IForumsPL
     {
         IEnumerable<Forum> DisplayAllForums();
+        Forum GetForumByID(Guid idForum);
     }
 }

@@ -1,16 +1,30 @@
-﻿<section>
-    <header>
-        <h2><a href="~/Pages/assassin.cshtml">Assasin's Creed</a></h2>
-    </header>
-    <div class="category">
-        <article>
-            <a href="#user">Описание игры</a>
-        </article>
-        <article>
-            <a href="#user">Отзывы</a>
-        </article>
-        <article>
-            <a href="#user">Квесты</a>
-        </article>
-    </div>
-</section>
+﻿@using PL.Web
+
+@{
+    string nameForum = "Assasin's Creed";
+    var WebForumPL = new WebForumsPL();
+    var forums = WebForumPL.DisplayAllForums();
+
+    var WebTopicPL = new WebTopicsPL();
+}
+@foreach (var item in forums)
+{
+    if (item.Name == nameForum)
+    {
+        var topics = WebTopicPL.GetAllByIdForum(item.IDForum);
+        <section>
+           
+            <div class="category">
+                @foreach (var rubric in topics)
+                {
+                    if (!rubric.Importand)
+                    {
+                        <article>
+                             <div class="nameTopic" id="@(rubric.IDTopic)">@(rubric.Name)</div>
+                        </article>
+                    }
+                }
+            </div>
+        </section>
+    }
+}

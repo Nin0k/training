@@ -1,0 +1,25 @@
+﻿@using PL.Web
+@{
+    var WebUserPL = new WebUsersPL();
+
+    var login = Request["login"];
+    var password = Request["password"];
+
+    if (WebUserPL.CheckForExistence(login))
+    {
+        if (WebUserPL.GetPassword(login) == password)
+        {
+            FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+            Response.Redirect("/");
+        }
+        else
+        {
+            Response.Write("Неверный пароль.");
+        }
+
+    }
+    else
+    {
+        Response.Write("Такого пользователя не существует.");
+    }
+}

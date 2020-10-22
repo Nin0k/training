@@ -7,13 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PL.Web.Moduls
+namespace PL.Web
 {
     public class WebForumsPL : IForumsPL
     {
         private IForumsBLL _bll;
         public WebForumsPL() => _bll = DependenciesBLL.ForumsBLL;
         public IEnumerable<Forum> DisplayAllForums() => _bll.AllForums;
+        public Forum GetForumByID(Guid idForum) => _bll.GetForumByID(idForum);
 
     }
 }

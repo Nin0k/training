@@ -1,5 +1,17 @@
 ﻿@{
     Layout = "~/_BasicLayout.cshtml";
 }
+@{      if (User.Identity.IsAuthenticated)
+        {
+        <form id="assasin" class="form_addTopic">
+            @RenderPage("~/Pages/_addTopic.cshtml")
+        </form>
+        }
+        else{
+            <p>Вы должны войти или зарегистрироваться, чтобы создавать темы.</p>
+        } 
+}
+
+@RenderPage("~/Pages/_topics_assasin_important.cshtml")
 
 @RenderPage("~/Pages/_topics_assasin.cshtml")

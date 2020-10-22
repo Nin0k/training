@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IForumsDAL.cs" />
+    <Compile Include="IMessageDAL.cs" />
+    <Compile Include="ITopicsDAL.cs" />
+    <Compile Include="IUsersDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

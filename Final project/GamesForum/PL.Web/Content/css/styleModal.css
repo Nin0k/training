@@ -1,0 +1,83 @@
+﻿
+.openModal, .openModalTopic {
+    background: #f6f6f6;
+    border: none;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    font-size: 18px;
+    display: flex;
+    height: 32px;
+    line-height: 35px;
+}
+.openModal:hover, .openModalTopic:hover  {
+    transform: scale(1.1);
+}
+.openModal img, .openModalTopic img{
+    margin: 0 5px;
+}
+.openModalTopic {
+    position: static;
+    background: #ffffff;
+}
+.form_addTopic {
+    display: flex;
+    justify-content: flex-end;
+    margin:5px;
+}
+.modal-window {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99999;
+    display: none;
+    pointer-events: none;
+}
+
+.modal-window:target {
+	display: block;
+	pointer-events: auto;
+}
+
+.modal-item {
+	width: 70%;
+	position: relative;
+	margin: 10% auto;
+	padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    text-align: right;
+}
+
+.modal-item input, textarea {
+    width: 100%;
+    border: none;
+    padding-bottom: 10px;
+}
+
+.modal-item input:first-child { 
+    font-size: 16pt; 
+}
+
+.modal-item textarea { 
+    height: 60px; 
+    resize: none;
+    font-family: sans-serif;
+}
+
+.modal-item button {
+    border: none;
+    width: 70px;
+    height: 30px;
+    border-radius: 3px;
+    background: #ffffff;
+    display: inline-block;
+}
+
+.modal-item button:hover {
+    background: #ebebeb;
+}

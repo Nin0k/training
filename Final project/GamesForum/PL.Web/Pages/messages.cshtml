@@ -1,0 +1,84 @@
+﻿
+@using PL.Web
+@using Entitiens
+
+@{
+    var WebTopicPL = new WebTopicsPL();
+    var WebMessagePL = new WebMessagesPL();
+    var WebUserPL = new WebUsersPL();
+
+    if (Guid.TryParse(Request["idTopic"], out Guid idTopic))
+    {
+        Topic topic = WebTopicPL.GetTopicByID(idTopic);
+        var massage = WebMessagePL.GetMassagesByIdTopic(idTopic);
+
+
+        //var itemsMassage = massage.OrderBy(x => x.Date).ToArray();
+
+        <section>
+            <header>
+                <h2>@(topic.Name)</h2>
+            </header>
+            <div class="category">
+
+
+                @foreach (var item in massage)
+                {
+                    User user = WebUserPL.GetUserByID(item.IDUser);
+
+                    <div class="message">
+
+                        <div class="userBlock" id="@(user.IDUser)">
+                            <img src="~/Content/image/no_avatar.png" alt="avatar" />
+                            <h3>@(user.Nickname)</h3>
+                            <span class="reputation@(user.IDUser)"> Репутация: @(user.Reputation)</span>
+                        </div>
+
+                        <div class="text_message" id="@(item.IDMessage)">
+                            <p>@(item.Text)</p>
+
+                            <div class="info_messange">
+                                <p>@(item.Date)</p>
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                <button class="reputation">
+                                    <img class="reputation_messges reputation_plus" src="~/Content/image/plus.png" alt="plus" />
+                                </button>
+
+                                <p id="reputation@(item.IDMessage)">@(item.Reputation)</p>
+
+                                <button class="reputation">
+                                    <img class="reputation_messges reputation_minus" src="~/Content/image/minus.png" alt="minus" />
+                                </button>
+                                }
+                                else
+                                {
+                                    <p>Репутация: @(item.Reputation)</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+
+        </section>
+
+        if (User.Identity.IsAuthenticated)
+        {
+            <button class="openModal" onclick="location.href='#newMessageModal'">
+                <img src="~/Content/image/new-email.png" alt="Ответить" />
+                Ответить
+            </button>
+        }
+        else
+        {
+            <p>Вы должны войти или зарегистрироваться, чтобы оставлять здесь сообщения.</p>
+        }
+    }
+
+}
+
+@RenderPage("~/Pages/_addMessage.cshtml")

@@ -18,16 +18,19 @@ namespace Entitiens
 
         public bool Admin { get; set; }
 
+        public string Password { get; set; }
+
         protected User()
         {
             IDUser = Guid.NewGuid();
 
         }
 
-        public User(string name, bool admin) : this()
+        public User(string name, bool admin, string password) : this()
         {
 
             Nickname = name ?? throw new ArgumentNullException(nameof(name));
+            Password = password ?? throw new ArgumentNullException(nameof(password));
 
             Admin = admin;
 

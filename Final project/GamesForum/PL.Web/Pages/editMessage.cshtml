@@ -1,0 +1,28 @@
+﻿@using PL.Web
+@using Entitiens
+@using Newtonsoft.Json
+@{
+
+    if (Guid.TryParse(Request["id_message"], out Guid idMessage))
+    {
+        string action = Request["action"];
+
+        var WebMessagePL = new WebMessagesPL();
+        var WebUserPL = new WebUsersPL();
+
+        var message = WebMessagePL.GetMessageByID(idMessage);
+        Guid idUser = message.IDUser;
+
+        var editMessange = WebMessagePL.EditReputationMessang(idMessage, action);
+        var editUser = WebUserPL.EditReputationUser(idUser, action);
+
+        if (editMessange && editUser)
+        {
+            int updateUser = WebUserPL.GetUserByID(idUser).Reputation;
+            int updateMessange = WebMessagePL.GetMessageByID(idMessage).Reputation;
+            Response.Write(JsonConvert.SerializeObject(new string[] {"reputation", $"{idUser}", $"{updateUser}", $"{idMessage}", $"{updateMessange}" }));
+        }
+
+
+    }
+}

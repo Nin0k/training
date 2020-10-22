@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Common;
+using BLL.Dependencies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,10 @@ namespace PL.Web.Moduls
 {
     public class MyRoleProvider : RoleProvider
     {
+        private IUsersBLL _bll;
+        public MyRoleProvider() => _bll = DependenciesBLL.UsersBLL;
+        public override string[] GetRolesForUser(string username) => _bll.GetRolesForUser(username);
+        public override bool IsUserInRole(string username, string roleName) => _bll.IsUserInRole(username, roleName);
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
@@ -35,17 +41,7 @@ namespace PL.Web.Moduls
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string username)
-        {
-            throw new NotImplementedException();
-        }
-
         public override string[] GetUsersInRole(string roleName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool IsUserInRole(string username, string roleName)
         {
             throw new NotImplementedException();
         }

@@ -47,6 +47,9 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,25 +92,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\styleModal.css" />
+    <Content Include="Scripts\messages.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Moduls\MyRoleProvider.cs" />
     <Compile Include="Moduls\WebForumsPL.cs" />
+    <Compile Include="Moduls\WebMessagesPL.cs" />
+    <Compile Include="Moduls\WebTopicsPL.cs" />
+    <Compile Include="Moduls\WebUsersPL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.cshtml" />
+    <Content Include="login.cshtml" />
+    <Content Include="logout.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Pages\_topics_assasin.cshtml" />
-    <Content Include="Pages\_topics_info.cshtml" />
-    <Content Include="Pages\_topics_redemption.cshtml" />
-    <Content Include="Pages\_topics_witcher.cshtml" />
+    <Content Include="Pages\_topics_assasin_important.cshtml" />
+    <Content Include="Pages\_topics_info_important.cshtml" />
+    <Content Include="Pages\_topics_redemption_important.cshtml" />
+    <Content Include="Pages\_topics_witcher_important.cshtml" />
     <Content Include="Pages\assassin.cshtml" />
     <Content Include="Pages\information.cshtml" />
     <Content Include="Pages\redemption.cshtml" />
     <Content Include="Pages\witcher.cshtml" />
+    <Content Include="Pages\_topics_assasin.cshtml" />
+    <Content Include="Pages\messages.cshtml" />
+    <Content Include="Pages\_addMessage.cshtml" />
+    <Content Include="Pages\_addTopic.cshtml" />
+    <Content Include="Pages\_topics_redemption.cshtml" />
+    <Content Include="Pages\_topics_witcher.cshtml" />
+    <Content Include="Pages\logOn.cshtml" />
+    <Content Include="Pages\registration.cshtml" />
+    <Content Include="Pages\editMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

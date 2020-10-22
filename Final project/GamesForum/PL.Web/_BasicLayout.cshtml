@@ -9,14 +9,21 @@
     <meta name="viewport" content="width=device-width" />
     <title>Let's play!</title>
     <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="~/Content/css/styleModal.css">
 </head>
 <body>
     <header class="header">
         <h1><a href="~/index.cshtml">Let's play!</a></h1>
         <div class="button_entry">
-            <button>Вход</button>
-            <button>Регистрация</button>
+            @{if (User.Identity.IsAuthenticated)
+                {
+                        <span>Привет, @(User.Identity.Name)</span> <button>Выход</button>
+                }
+                else
+                {
+                    <button id="button_login">Вход/Регистрация</button>
+                }
+            }
         </div>
     </header>
     <nav>
@@ -31,8 +38,12 @@
         </div>
     </nav>
     <main>
-        @RenderBody()
+        <div id="forSections">
+            @RenderBody()
+        </div>
+        <div id="forMessage"></div>
     </main>
     <script src="~/Scripts/script.js"></script>
+    <script src="~/Scripts/messages.js"></script>
 </body>
 </html>

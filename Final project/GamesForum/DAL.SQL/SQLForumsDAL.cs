@@ -39,5 +39,34 @@ namespace DAL.SQL
                 }
             }
         }
+
+        public Forum GetForumByID(Guid idForum)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Forum_GetById";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@id", idForum);
+
+                _connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Forum forum = new Forum(reader["name"] as string);
+                   forum.IDForum = (Guid)reader["id_forum"];
+
+                    return forum;
+                }
+
+                throw new InvalidOperationException("Cannot find forum with ID = " + idForum);
+            }
+        }
     }
 }

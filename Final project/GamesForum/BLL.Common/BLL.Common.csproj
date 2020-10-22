@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IForumsBLL.cs" />
+    <Compile Include="IMessageBLL.cs" />
+    <Compile Include="ITopicsBLL.cs" />
+    <Compile Include="IUsersBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

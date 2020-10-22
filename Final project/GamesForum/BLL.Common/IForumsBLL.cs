@@ -10,5 +10,6 @@ namespace BLL.Common
     public interface IForumsBLL
     {
         IEnumerable<Forum> AllForums { get; }
+        Forum GetForumByID(Guid idForum);
     }
 }

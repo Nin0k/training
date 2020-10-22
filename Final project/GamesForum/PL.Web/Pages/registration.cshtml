@@ -1,0 +1,14 @@
+﻿@using PL.Web
+@{
+    var WebUserPL = new WebUsersPL();
+
+    var login = Request["login"];
+    var password = Request["password"];
+    bool.TryParse(Request["admin"], out bool admin);
+
+    if (WebUserPL.RegistrationUser(login, password, admin))
+    {
+        FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+        Response.Redirect("/");
+    }
+}

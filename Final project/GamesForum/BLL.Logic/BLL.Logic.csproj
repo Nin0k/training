@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ForumsBLL.cs" />
+    <Compile Include="MessagesBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopicsBLL.cs" />
+    <Compile Include="UsersBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL.Common\BLL.Common.csproj">
@@ -52,6 +55,10 @@
     <ProjectReference Include="..\DAL.Common\DAL.Common.csproj">
       <Project>{7E5C8F11-E060-4561-A3EE-E003B1369F5B}</Project>
       <Name>DAL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Dependencies\DAL.Dependencies.csproj">
+      <Project>{69D3DE02-8F7F-4D65-823D-EF246AE6C3A8}</Project>
+      <Name>DAL.Dependencies</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entitiens\Entitiens.csproj">
       <Project>{719D9A0D-28D1-4EEB-8771-F587ADF8A9D0}</Project>

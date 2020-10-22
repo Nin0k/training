@@ -25,9 +25,9 @@ h1, h2 {
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-    h1 a, h2 a {
-        color: #ffffff;
-    }
+h1 a, h2 a {
+    color: #ffffff;
+}
 
 header {
     background: #76ad2e;
@@ -43,41 +43,43 @@ header {
     top: 0px;
 }
 
-    .button_entry button {
-        font-size: 18px;
-        height: 50px;
-        background: #689730;
-        background: linear-gradient(180deg, #76ad2e 0%, #577b33 100%);
-        color: #ffffff;
-        border: none;
-        margin-left: 5px;
-    }
-
+.button_entry button {
+    font-size: 18px;
+    height: 50px;
+    background: #689730;
+    background: linear-gradient(180deg, #76ad2e 0%, #577b33 100%);
+    color: #ffffff;
+    border: none;
+    margin-left: 5px;
+}
+.button_entry spam{
+    margin-right:10px;
+}
 nav {
     background: #131313;
     display: flex;
     justify-content: center;
 }
 
-    nav ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
-    }
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
 
-        nav ul li {
-            margin: 10px;
-        }
+nav ul li {
+    margin: 10px;
+}
 
-    nav a {
-        color: #ffffff;
-        padding: 10px 15px;
-    }
+nav a {
+    color: #ffffff;
+    padding: 10px 15px;
+}
 
-        nav a:hover, h1 {
-            text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
-        }
+nav a:hover, h1 {
+     text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+}
 
 main {
     width: 90%;
@@ -88,7 +90,7 @@ main {
 }
 
 section {
-    /* width: 90%;*/
+    margin-bottom:20px;
 }
 
 .category {
@@ -96,16 +98,102 @@ section {
     margin-bottom: 10px;
 }
 
-article {
+article, .message {
     height: 40px;
     border-bottom: 1px solid #bdc5b7;
     line-height: 40px;
 }
 
-    article:last-child {
-        border: none;
-    }
+article:last-child, message:last-child {
+    border: none;
+}
+.message {
+    min-height: 200px;
+    display: flex;
+}
+.nameTopic {
+    margin-left: 5px;
+}
+.userBlock {
+    padding-top: 20px;
+    border-right: 1px solid #bdc5b7;
+    width: 20%;
+    text-align: center;
+}
 
-    article a {
-        margin-left: 5px;
-    }
+.text_message {
+    padding-left: 20px;
+    padding-top: 20px;
+    position: relative;
+    width: 80%;
+}
+.info_messange {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display:flex;
+}
+.info_messange p{
+    padding: 0 5px;
+}
+.info_message p:first-child {
+    padding: 0 15px;
+}
+.reputation {
+    border: none;
+    background: #ffffff;
+}
+.reputation_messges {
+    width: 25px;
+    height: 25px;
+}
+textarea {
+    height: 40px;
+    resize: none;
+    font-family: 'Noto Sans', sans-serif;
+ }
+
+.login_form {
+    width: 50%;
+    max-width: 400px;
+    height: 220px;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+.login_form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start
+}
+
+.login_button {
+    background: #ffffff;
+    width: 150px;
+    border: 1px solid #76ad2e;
+    font-size: 14px;
+    margin: 5px;
+    padding: 5px;
+}
+.login_button:hover {
+    background: #f5f5f5;
+}
+.login_form div {
+    margin: 5px 0;
+}
+
+.login_label {
+    width: 70px;
+    margin-top: 3px;
+    display: inline-block;
+    float: left;
+    padding: 3px;
+}
+
+.login_input {
+    width: 170px;
+    padding: 5px 8px;
+}
+.login_form input[type=checkbox] {
+     margin: 0 5px;
+}

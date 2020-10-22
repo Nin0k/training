@@ -10,5 +10,6 @@ namespace DAL.Common
     public interface IForumsDAL
     {
         IEnumerable<Forum> GetAllForums();
+        Forum GetForumByID(Guid idForum);
     }
 }

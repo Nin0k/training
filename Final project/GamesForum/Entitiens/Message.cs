@@ -17,13 +17,14 @@ namespace Entitiens
         public Guid IDUser { get; set; }
 
         public int Reputation { get; set; }
+        public Guid IDTopic { get; set; }
 
         protected Message()
         {
             IDMessage = Guid.NewGuid();
         }
 
-        public Message(string text, Guid idUser) : this()
+        public Message(string text, Guid idUser, Guid idTopic) : this()
         {
 
             Text = text ?? throw new ArgumentNullException(nameof(text));
@@ -31,9 +32,10 @@ namespace Entitiens
             Reputation = 0;
             Date = DateTime.Now;
 
-            if (idUser != null)
+            if (idUser != null && idTopic != null)
             {
                 IDUser = idUser;
+                IDTopic = idTopic;
             }
 
         }

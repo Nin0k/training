@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/_BasicLayout.cshtml";
+}
+<div class="login_form">
+    <form>
+        <div><label for="login" class="login_label">Имя:</label><input type="text" id="login" class="input login_input" required></div>
+        <div><label for="password" class="login_label">Пароль:</label><input type="password" id="password" class="input login_input" required></div>
+        <div><input type="checkbox" id="admin" value="admin"><label for="admin">Администратор</label></div>
+        <div><label class="error" id="labelError"></label></div>
+        <div>
+            <button type="button" class="login_button" id="logon" >Войти</button>
+            <button type="button" class="login_button" id="registration" >Регистрация</button>
+        </div>
+    </form>
+</div>

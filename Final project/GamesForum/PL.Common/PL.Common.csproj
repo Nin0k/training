@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IForumsPL.cs" />
+    <Compile Include="IMessagesPL.cs" />
+    <Compile Include="ITopicsPL.cs" />
+    <Compile Include="IUsersPL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

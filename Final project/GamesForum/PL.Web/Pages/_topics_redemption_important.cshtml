@@ -1,0 +1,32 @@
+﻿@using PL.Web
+
+@{
+    string nameForum = "Red Dead Redemption";
+    var WebForumPL = new WebForumsPL();
+    var forums = WebForumPL.DisplayAllForums();
+
+    var WebTopicPL = new WebTopicsPL();
+}
+@foreach (var item in forums)
+{
+    if (item.Name == nameForum)
+    {
+        var topics = WebTopicPL.GetAllByIdForum(item.IDForum);
+        <section>
+            <header>
+                <h2><a href="~/Pages/redemption.cshtml">@(item.Name)</a></h2>
+            </header>
+            <div class="category">
+                @foreach (var rubric in topics)
+                {
+                    if (rubric.Importand)
+                    {
+                    <article>
+                         <div class="nameTopic" id="@(rubric.IDTopic)">@(rubric.Name)</div>
+                    </article>
+                    }
+                }
+            </div>
+        </section>
+    }
+}
