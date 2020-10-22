@@ -10,6 +10,7 @@ namespace DAL.Common
     public interface IUsersDAL
     {
         User GetUserByID(Guid id);
+        User GetUserByName(string nickname);
         string GetPassword(string name);
         string[] GetRolesForUser(string username);
         bool IsUserInRole(string username, string roleName);

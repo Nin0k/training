@@ -10,6 +10,7 @@ namespace PL.Common
     public interface IUsersPL
     {
         User GetUserByID(Guid id);
+        User GetUserByName(string nickname);
         bool RegistrationUser(string login, string password, bool admin);
         bool CheckForExistence(string name);
         string GetPassword(string name);

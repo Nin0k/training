@@ -12,5 +12,6 @@ namespace PL.Common
         IEnumerable<Message> GetMassagesByIdTopic(Guid idTopic);
         Message GetMessageByID(Guid id);
         bool EditReputationMessang(Guid idMessage, string action);
+        Guid CreateNewMessage(string textMessage, Guid idUser, Guid idTopic);
     }
 }

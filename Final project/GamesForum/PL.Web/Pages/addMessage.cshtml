@@ -1,0 +1,27 @@
+﻿@using PL.Web
+@using Entitiens
+@using Newtonsoft.Json
+@{
+
+    if (Guid.TryParse(Request["idTopic"], out Guid idTopic))
+    {
+        string textMessage = Request["textMessage"];
+        string nameUser = Request["nameUser"];
+
+        var WebMessagePL = new WebMessagesPL();
+        var WebUserPL = new WebUsersPL();
+
+        User user = WebUserPL.GetUserByName(nameUser);
+
+        Guid newMessangeId = WebMessagePL.CreateNewMessage(textMessage, user.IDUser, idTopic);
+
+        Message newMessange = WebMessagePL.GetMessageByID(newMessangeId);
+
+        Response.Write(JsonConvert.SerializeObject(new string[] 
+            {"newMessange", $"{user.IDUser}", $"{user.Nickname}", $"{user.Reputation}",
+            $"{newMessange.IDMessage}", $"{newMessange.Text}", $"{newMessange.Date}", $"{newMessange.Reputation}" }));
+
+
+
+            }
+}

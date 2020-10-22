@@ -43,7 +43,37 @@ namespace DAL.SQL
                 throw new InvalidOperationException("Cannot find user with ID = " + idUser);
             }
         }
-       
+        public User GetUserByName(string nickname)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Users_GetUserByName";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@nickname", nickname);
+
+                _connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    User user = new User(nickname, (bool)reader["admin"], reader["password"] as string);
+                    user.IDUser = (Guid)reader["id_user"];
+                    user.DateRegistration = (DateTime)reader["date_registration"];
+                    user.Reputation = (int)reader["reputation"];
+
+                    return user;
+                }
+
+                throw new InvalidOperationException("Cannot find user with nickname = " + nickname);
+            }
+        }
+
         public void RegistrationUser(User user)
         {
 

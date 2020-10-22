@@ -19,7 +19,7 @@
             <header>
                 <h2>@(topic.Name)</h2>
             </header>
-            <div class="category">
+            <div class="category" id="categoryForMessages">
 
 
                 @foreach (var item in massage)
@@ -28,7 +28,7 @@
 
                     <div class="message">
 
-                        <div class="userBlock" id="@(user.IDUser)">
+                        <div class="userBlock" id="@(user.IDUser)@(item.IDMessage)">
                             <img src="~/Content/image/no_avatar.png" alt="avatar" />
                             <h3>@(user.Nickname)</h3>
                             <span class="reputation@(user.IDUser)"> Репутация: @(user.Reputation)</span>
@@ -42,15 +42,15 @@
 
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                <button class="reputation">
-                                    <img class="reputation_messges reputation_plus" src="~/Content/image/plus.png" alt="plus" />
-                                </button>
+                                    <button class="reputation">
+                                        <img class="reputation_messges reputation_plus" src="~/Content/image/plus.png" alt="plus" />
+                                    </button>
 
-                                <p id="reputation@(item.IDMessage)">@(item.Reputation)</p>
+                                    <p id="reputation@(item.IDMessage)">@(item.Reputation)</p>
 
-                                <button class="reputation">
-                                    <img class="reputation_messges reputation_minus" src="~/Content/image/minus.png" alt="minus" />
-                                </button>
+                                    <button class="reputation">
+                                        <img class="reputation_messges reputation_minus" src="~/Content/image/minus.png" alt="minus" />
+                                    </button>
                                 }
                                 else
                                 {
@@ -77,8 +77,12 @@
         {
             <p>Вы должны войти или зарегистрироваться, чтобы оставлять здесь сообщения.</p>
         }
+    <div class="forModalWindow" id="@(idTopic)">
+    @RenderPage("~/Pages/_newMessage.cshtml")
+    </div>
+        
     }
 
 }
 
-@RenderPage("~/Pages/_addMessage.cshtml")
+

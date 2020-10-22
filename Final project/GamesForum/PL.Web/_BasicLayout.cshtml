@@ -17,11 +17,11 @@
         <div class="button_entry">
             @{if (User.Identity.IsAuthenticated)
                 {
-                        <span>Привет, @(User.Identity.Name)</span> <button>Выход</button>
+                        <span>Привет, @(User.Identity.Name)</span> <button id="button_exit" onclick="exit()">Выход</button>
                 }
                 else
                 {
-                    <button id="button_login">Вход/Регистрация</button>
+                    <button id="button_login" onclick="logIn()">Вход/Регистрация</button>
                 }
             }
         </div>

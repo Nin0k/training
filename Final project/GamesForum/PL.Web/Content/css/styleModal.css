@@ -2,9 +2,6 @@
 .openModal, .openModalTopic {
     background: #f6f6f6;
     border: none;
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
     font-size: 18px;
     display: flex;
     height: 32px;
@@ -17,7 +14,6 @@
     margin: 0 5px;
 }
 .openModalTopic {
-    position: static;
     background: #ffffff;
 }
 .form_addTopic {

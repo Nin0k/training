@@ -120,13 +120,14 @@
     <Content Include="Pages\witcher.cshtml" />
     <Content Include="Pages\_topics_assasin.cshtml" />
     <Content Include="Pages\messages.cshtml" />
-    <Content Include="Pages\_addMessage.cshtml" />
+    <Content Include="Pages\_newMessage.cshtml" />
     <Content Include="Pages\_addTopic.cshtml" />
     <Content Include="Pages\_topics_redemption.cshtml" />
     <Content Include="Pages\_topics_witcher.cshtml" />
     <Content Include="Pages\logOn.cshtml" />
     <Content Include="Pages\registration.cshtml" />
     <Content Include="Pages\editMessage.cshtml" />
+    <Content Include="Pages\addMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

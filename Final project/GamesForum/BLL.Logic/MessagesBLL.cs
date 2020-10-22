@@ -46,5 +46,11 @@ namespace BLL.Logic
                 return false;
             }
         }
+        public Guid CreateNewMessage(string textMessage, Guid idUser, Guid idTopic)
+        {
+            Message messange = new Message(textMessage, idUser, idTopic);
+            _messageDAL.CreateNewMessage(messange);
+            return messange.IDMessage;
+        }
     }
 }

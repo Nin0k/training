@@ -21,5 +21,6 @@ namespace PL.Web
         public Message GetMessageByID(Guid id) => _messagesBLL.GetMessageByID(id);
 
         public bool EditReputationMessang(Guid idMessage, string action) => _messagesBLL.EditReputationMessang(idMessage, action);
+        public Guid CreateNewMessage(string textMessage, Guid idUser, Guid idTopic) => _messagesBLL.CreateNewMessage(textMessage, idUser, idTopic);
     }
 }

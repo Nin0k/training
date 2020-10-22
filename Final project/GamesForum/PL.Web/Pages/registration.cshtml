@@ -6,9 +6,15 @@
     var password = Request["password"];
     bool.TryParse(Request["admin"], out bool admin);
 
-    if (WebUserPL.RegistrationUser(login, password, admin))
+    if (!WebUserPL.CheckForExistence(login)) {
+        if (WebUserPL.RegistrationUser(login, password, admin))
+        {
+            FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+            Response.Redirect("/");
+        }
+    }
+    else
     {
-        FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
-        Response.Redirect("/");
+        Response.Write("Такой пользователь уже существует.");
     }
 }

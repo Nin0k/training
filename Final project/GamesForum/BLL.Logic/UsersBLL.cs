@@ -18,6 +18,7 @@ namespace BLL.Logic
             _usersDAL = DependenciesDAL.UsersDAL;
         }
         public User GetUserByID(Guid id) => _usersDAL.GetUserByID(id);
+        public User GetUserByName(string nickname) => _usersDAL.GetUserByName(nickname);
         public string[] GetRolesForUser(string username) => _usersDAL.GetRolesForUser(username);
         public bool IsUserInRole(string username, string roleName) => _usersDAL.IsUserInRole(username, roleName);
         public bool RegistrationUser(string login, string password, bool admin)

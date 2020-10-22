@@ -10,6 +10,7 @@ namespace BLL.Common
     public interface IUsersBLL
     {
         User GetUserByID(Guid id);
+        User GetUserByName(string nickname);
         string[] GetRolesForUser(string username);
         bool IsUserInRole(string username, string roleName);
         bool RegistrationUser(string login, string password, bool admin);

@@ -13,6 +13,7 @@ namespace PL.Web
         private IUsersBLL _bll;
         public WebUsersPL() => _bll = DependenciesBLL.UsersBLL;
         public User GetUserByID(Guid id) => _bll.GetUserByID(id);
+        public User GetUserByName(string nickname) => _bll.GetUserByName(nickname);
         public bool RegistrationUser(string login, string password, bool admin) => _bll.RegistrationUser(login, password, admin);
         public bool CheckForExistence(string name) => _bll.CheckForExistence(name);
         public string GetPassword(string name) => _bll.GetPassword(name);

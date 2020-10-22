@@ -96,5 +96,27 @@ namespace DAL.SQL
             }
            
         }
+        public void CreateNewMessage(Message messange)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Messages_CreateNewMessage";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@id_messange", messange.IDMessage);
+                command.Parameters.AddWithValue("@id_user", messange.IDUser);
+                command.Parameters.AddWithValue("@id_topic", messange.IDTopic);
+                command.Parameters.AddWithValue("@text", messange.Text);
+                command.Parameters.AddWithValue("@reputation", messange.Reputation);
+                command.Parameters.AddWithValue("@data", messange.Date);
+
+                _connection.Open();
+                command.ExecuteReader();
+            }
+        }
     }
 }

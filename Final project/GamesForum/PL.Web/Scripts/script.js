@@ -59,7 +59,7 @@ function registration() {
         data.append("login", login);
         data.append("password", password);
         data.append("admin", admin);
-        Request(url, data);
+        logonUser(url, data);
     }
     else if (login.length < 2) {
         document.getElementById('labelError').innerText = "Имя должно состоять хотя бы из двух букв.";
@@ -88,14 +88,19 @@ function logon() {
         document.getElementById('labelError').innerText = "Неверный пароль.";
     }
 }
+function exit() {
+    location.href = "/logout.cshtml";
+}
 
 let buttonTopics = document.querySelectorAll('.nameTopic');
 for (let i = 0; i < buttonTopics.length; i++) {
     buttonTopics[i].addEventListener("click", openMessages);
 }
+//document.getElementById('button_exit').addEventListener("click", exit);
 
-document.getElementById('button_login').addEventListener("click", logIn);
+//document.getElementById('button_login').addEventListener("click", logIn);
 
 document.getElementById('logon').addEventListener("click", logon);
 
 document.getElementById('registration').addEventListener("click", registration);
+

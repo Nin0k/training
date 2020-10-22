@@ -12,5 +12,6 @@ namespace DAL.Common
         IEnumerable<Message> GetMassagesByIdTopic(Guid idTopic);
         Message GetMessageByID(Guid id);
         void EditMessang(Message messange);
+        void CreateNewMessage(Message messange);
     }
 }
