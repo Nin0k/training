@@ -11,5 +11,6 @@ namespace BLL.Common
     {
         IEnumerable<Forum> AllForums { get; }
         Forum GetForumByID(Guid idForum);
+        Forum GetForumByName(string name);
     }
 }

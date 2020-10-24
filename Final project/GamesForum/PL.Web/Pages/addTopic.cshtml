@@ -1,0 +1,34 @@
+﻿@using PL.Web
+@using Entitiens
+
+@{
+
+    string headerTopic = Request["headerTopic"];
+    string textTopic = Request["textTopic"];
+    string nameForum = Request["nameForum"];
+    string nameUser = Request["nameUser"];
+
+    var WebForumPL = new WebForumsPL();
+    var WebTopicPL = new WebTopicsPL();
+    var WebUserPL = new WebUsersPL();
+    var WebMessagePL = new WebMessagesPL();
+    bool important;
+
+    Forum forum = WebForumPL.GetForumByName(nameForum);
+
+    User user = WebUserPL.GetUserByName(nameUser);
+    if(user.Admin)
+    {
+        important = true;
+    }
+    else
+    {
+        important = false;
+    }
+
+    Guid idNewTopic = WebTopicPL.CreateNewTopic(headerTopic, forum.IDForum, important);
+    Guid newMessangeId = WebMessagePL.CreateNewMessage(textTopic, user.IDUser, idNewTopic);
+
+}
+
+

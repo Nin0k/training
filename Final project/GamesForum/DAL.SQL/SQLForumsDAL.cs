@@ -68,5 +68,33 @@ namespace DAL.SQL
                 throw new InvalidOperationException("Cannot find forum with ID = " + idForum);
             }
         }
+        public Forum GetForumByName(string name)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Forum_GetByName";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@name", name);
+
+                _connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Forum forum = new Forum(name);
+                    forum.IDForum = (Guid)reader["id_forum"];
+
+                    return forum;
+                }
+
+                throw new InvalidOperationException("Cannot find forum with name = " + name);
+            }
+        }
     }
 }

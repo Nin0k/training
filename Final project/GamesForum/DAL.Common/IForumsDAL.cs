@@ -11,5 +11,6 @@ namespace DAL.Common
     {
         IEnumerable<Forum> GetAllForums();
         Forum GetForumByID(Guid idForum);
+        Forum GetForumByName(string name);
     }
 }

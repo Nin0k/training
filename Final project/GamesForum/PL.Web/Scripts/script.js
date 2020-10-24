@@ -8,7 +8,7 @@
 }
 
 function GetPage(url, data) {
-    var xhr = new XMLHttpRequest()
+    var xhr = new XMLHttpRequest() 
     xhr.open('POST', url);
     xhr.send(data);
     xhr.onload = (function () {
@@ -39,7 +39,7 @@ function logonUser(url, data) {
     xhr.open('POST', url);
     xhr.send(data);
     xhr.onload = (function () {
-        if (xhr.response.length < 30) {
+        if (xhr.response.length < 60) {
             document.getElementById('labelError').innerHTML = xhr.response;
         }
         else {
@@ -64,7 +64,7 @@ function registration() {
     else if (login.length < 2) {
         document.getElementById('labelError').innerText = "Имя должно состоять хотя бы из двух букв.";
     }
-    else if (password.length < 3) {
+    else if (password.length < 4) {
         document.getElementById('labelError').innerText = "Пароль должн состоять хотя бы из четырех символов.";
     }
 }
@@ -92,6 +92,44 @@ function exit() {
     location.href = "/logout.cshtml";
 }
 
+function saveTopic(el) {
+    let url = "/Pages/addTopic.cshtml";
+    let headerTopic = document.getElementById('headerTopic').value;
+    let textTopic = document.getElementById('textTopic').value;
+    let nameUser = document.getElementById('nameUserForTopic').value;
+    console.log(el.target);
+    let idForm = findAncestorId(el.target, "form_addTopic");
+    let removeSpacesHeader = headerTopic.trim();
+    let removeSpacesText = textTopic.trim();
+
+    let nameForum;
+    if (idForm == "info") {
+        nameForum = "Информация";
+    }
+    else if (idForm == "assasin") {
+        nameForum = "Assasin's Creed";
+    }
+    else if (idForm == "redemption") {
+        nameForum = "Red Dead Redemption";
+    }
+    else if (idForm == "witcher") {
+        nameForum = "Witcher";
+    }
+
+    if (removeSpacesHeader.length > 0 && removeSpacesText.length > 0 && nameUser && nameForum) {
+        let data = new FormData();
+        data.append("headerTopic", headerTopic);
+        data.append("textTopic", textTopic);
+        data.append("nameUser", nameUser);
+        data.append("nameForum", nameForum); 
+        document.getElementById("exit").click();
+        Request(url, data);
+    }
+    else {
+        alert("Введите текст и название темы!");//TODO
+    }
+}
+
 let buttonTopics = document.querySelectorAll('.nameTopic');
 for (let i = 0; i < buttonTopics.length; i++) {
     buttonTopics[i].addEventListener("click", openMessages);
@@ -99,8 +137,11 @@ for (let i = 0; i < buttonTopics.length; i++) {
 //document.getElementById('button_exit').addEventListener("click", exit);
 
 //document.getElementById('button_login').addEventListener("click", logIn);
+document.getElementById('saveTopic').addEventListener("click", saveTopic);
 
 document.getElementById('logon').addEventListener("click", logon);
 
 document.getElementById('registration').addEventListener("click", registration);
+
+
 

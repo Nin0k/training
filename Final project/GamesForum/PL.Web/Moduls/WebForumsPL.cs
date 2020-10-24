@@ -15,6 +15,7 @@ namespace PL.Web
         public WebForumsPL() => _bll = DependenciesBLL.ForumsBLL;
         public IEnumerable<Forum> DisplayAllForums() => _bll.AllForums;
         public Forum GetForumByID(Guid idForum) => _bll.GetForumByID(idForum);
+        public Forum GetForumByName(string name) => _bll.GetForumByName(name);
 
     }
 }

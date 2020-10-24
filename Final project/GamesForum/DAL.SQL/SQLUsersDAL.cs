@@ -90,14 +90,16 @@ namespace DAL.SQL
                 command.Parameters.AddWithValue("@password", user.Password);
                 command.Parameters.AddWithValue("@admin", user.Admin);
                 command.Parameters.AddWithValue("@nickname", user.Nickname);
-                command.Parameters.AddWithValue("@date_registration", user.DateRegistration);
+                command.Parameters.AddWithValue("@data", user.DateRegistration);
                 command.Parameters.AddWithValue("@reputation", user.Reputation);
+                
                 _connection.Open();
                 command.ExecuteReader();
+                
             }
         }
 
-        public bool CheckForExistence(string name)
+        public bool CheckForExistence(string nickname)
         {
             using (SqlConnection _connection = new SqlConnection(_connectionString))
             {
@@ -108,14 +110,14 @@ namespace DAL.SQL
                     CommandType = System.Data.CommandType.StoredProcedure
                 };
 
-                command.Parameters.AddWithValue("@nickname", name);
+                command.Parameters.AddWithValue("@nickname", nickname);
 
                 _connection.Open();
                 var reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    if ((reader["nickname"] as string) == name)
+                    if ((reader["nickname"] as string) == nickname)
                     {
                         return true;
                     }

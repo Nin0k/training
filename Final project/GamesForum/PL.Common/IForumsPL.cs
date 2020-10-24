@@ -11,5 +11,6 @@ namespace PL.Common
     {
         IEnumerable<Forum> DisplayAllForums();
         Forum GetForumByID(Guid idForum);
+        Forum GetForumByName(string name);
     }
 }

@@ -11,5 +11,6 @@ namespace DAL.Common
     {
         IEnumerable<Topic> GetAllByIdForum(Guid idForum);
         Topic GetTopicByID(Guid idTopic);
+        void CreateNewTopic(Topic newTopic);
     }
 }

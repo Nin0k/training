@@ -20,5 +20,6 @@ namespace BLL.Logic
         public IEnumerable<Forum> AllForums => _forumsDAL.GetAllForums();
 
         public Forum GetForumByID(Guid idForum) => _forumsDAL.GetForumByID(idForum);
+        public Forum GetForumByName(string name) => _forumsDAL.GetForumByName(name);
     }
 }

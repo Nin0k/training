@@ -69,5 +69,25 @@ namespace DAL.SQL
                 throw new InvalidOperationException("Cannot find topic with ID = " + idTopic);
             }
         }
+        public void CreateNewTopic(Topic newTopic)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Topic_CreateNewTopi";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@id_topic", newTopic.IDTopic);
+                command.Parameters.AddWithValue("@name", newTopic.Name);
+                command.Parameters.AddWithValue("@important", newTopic.Importand);
+                command.Parameters.AddWithValue("@id_forum", newTopic.IDForum);
+
+                _connection.Open();
+                command.ExecuteReader();
+            }
+        }
     }
 }
