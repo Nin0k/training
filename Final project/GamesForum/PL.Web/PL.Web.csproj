@@ -129,6 +129,12 @@
     <Content Include="Pages\editMessage.cshtml" />
     <Content Include="Pages\addMessage.cshtml" />
     <Content Include="Pages\addTopic.cshtml" />
+    <Content Include="Pages\allUsers.cshtml" />
+    <Content Include="Pages\_getListUsers.cshtml" />
+    <Content Include="Pages\editUser.cshtml" />
+    <Content Include="Pages\delUser.cshtml" />
+    <Content Include="Pages\delMessage.cshtml" />
+    <Content Include="Pages\delTopic.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

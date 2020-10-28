@@ -34,6 +34,10 @@
                 <li><a href="~/Pages/assassin.cshtml">Assassin’s Creed</a></li>
 
                 <li><a href="~/Pages/redemption.cshtml">Red Dead Redemption</a></li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href="~/Pages/allUsers.cshtml">Все пользователи</a></li>
+                }
             </ul>
         </div>
     </nav>

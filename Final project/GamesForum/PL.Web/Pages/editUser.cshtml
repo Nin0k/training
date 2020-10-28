@@ -1,0 +1,13 @@
+﻿@using PL.Web
+
+@{
+    var WebUserPL = new WebUsersPL();
+
+    string nameUser = Request["nameUser"];
+    if (bool.TryParse(Request["newRole"], out bool newRole))
+    {
+
+        var users = WebUserPL.ChangeUserRole(nameUser, newRole);
+    }
+
+}

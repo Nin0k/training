@@ -118,5 +118,22 @@ namespace DAL.SQL
                 command.ExecuteReader();
             }
         }
+        public void DeleteMessage(Guid id)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Messages_DeleteMessage";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@id", id);
+
+                _connection.Open();
+                command.ExecuteReader();
+            }
+        }
     }
 }

@@ -1,0 +1,51 @@
+﻿@using PL.Web
+
+@{
+    var WebUserPL = new WebUsersPL();
+    var users = WebUserPL.GetAllUsers();
+    
+    <div class="tableUser">
+        <table>
+            <tr>
+                <th>Ник</th>
+                <th>Дата регистрации</th>
+                <th>Репутация</th>
+                <th>Роль</th>
+                <th>Удалить</th>
+            </tr>
+            @foreach (var item in users)
+            {
+                var data = item.DateRegistration;
+                var roleUser = item.Admin;
+                <tr>
+                    <td>@(item.Nickname)</td>
+                
+                    <td>@(data.Day).@(data.Month).@(data.Year)</td>
+                
+                    <td>@(item.Reputation)</td>
+                
+                    <td>
+                        <select id="select@(item.Nickname)" name="userSelect">
+                            @if (roleUser)
+                            {
+                                <option value="true" selected> Администратор</option>
+                                <option value="false"> Пользователь </option>
+                            }
+                            else
+                            {
+                                <option value="true"> Администратор</option>
+                                <option value="false" selected> Пользователь </option>
+                            }
+
+                        </select>
+                    </td>
+                    <td>
+                        <button class="button_deletUser">
+                            <img src="~/Content/image/delete.png" alt="Delet user" id="delet@(item.Nickname)" class="deletUser"/>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}

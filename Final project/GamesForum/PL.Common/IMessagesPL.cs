@@ -13,5 +13,6 @@ namespace PL.Common
         Message GetMessageByID(Guid id);
         bool EditReputationMessang(Guid idMessage, string action);
         Guid CreateNewMessage(string textMessage, Guid idUser, Guid idTopic);
+        bool DeleteMessage(Guid idMessage);
     }
 }

@@ -36,6 +36,9 @@ header {
     line-height: 50px;
     color: #ffffff;
 }
+.headerForMessageBox{
+    position:relative;
+}
 
 .button_entry {
     position: absolute;
@@ -107,12 +110,16 @@ article, .message {
 article:last-child, message:last-child {
     border: none;
 }
+
 .message {
     min-height: 200px;
+    height:100%;
     display: flex;
+    position:relative;
 }
 .nameTopic {
     margin-left: 5px;
+    position: relative;
 }
 .userBlock {
     padding-top: 20px;
@@ -124,9 +131,11 @@ article:last-child, message:last-child {
 .text_message {
     padding-left: 20px;
     padding-top: 20px;
+    padding-bottom:50px;
     position: relative;
     width: 80%;
 }
+
 .info_messange {
     position: absolute;
     bottom: 10px;
@@ -147,11 +156,23 @@ article:last-child, message:last-child {
     width: 25px;
     height: 25px;
 }
+.deleteMessage, .deleteTopic{
+    position:absolute;
+    top:5px;
+    right:5px;
+}
+.img_deleteMessage, .img_deleteTopic {
+    width: 20px;
+    height: 20px;
+}
+.img_deletMessage:hover, .img_deleteTopic:hover {
+    transform: scale(1.2);
+}
 textarea {
     height: 40px;
     resize: none;
     font-family: 'Noto Sans', sans-serif;
- }
+}
 
 .login_form {
     width: 50%;
@@ -196,4 +217,44 @@ textarea {
 }
 .login_form input[type=checkbox] {
      margin: 0 5px;
+}
+.button_deletUser {
+    background-color: #ffffff;
+    border:none;
+}
+.tableUser {
+    overflow-x: auto;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #dbf4df;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    /*background-color: #dbf4df;*/
+    border:1px solid #dbf4df;
+}
+select {
+    width:120px;
+    height:20px;
+}
+
+.numberMessages, .lastMessage {
+    position: absolute;
+    color: #828480;
+    top:0px;
+
+}
+.numberMessages {
+    right: 40%;
+}
+.lastMessage{
+    right: 2%;
 }

@@ -6,6 +6,7 @@
     var forums = WebForumPL.DisplayAllForums();
 
     var WebTopicPL = new WebTopicsPL();
+    var WebMessagePL = new WebMessagesPL();
 }
 @foreach (var item in forums)
 {
@@ -19,8 +20,23 @@
                 {
                     if (!rubric.Importand)
                     {
+                        var allMessages = WebMessagePL.GetMassagesByIdTopic(rubric.IDTopic);
+                        var numberMessages = allMessages.Count();
+                        var lastMessage = "";
+                        if (numberMessages > 0)
+                        {
+                            var date = allMessages.Last().Date;
+                            lastMessage = "Последнее: " + date;
+                        }
+
                         <article>
-                             <div class="nameTopic" id="@(rubric.IDTopic)">@(rubric.Name)</div>
+                            <div class="nameTopic" id="@(rubric.IDTopic)">
+                                
+                                    @(rubric.Name)
+                                    <p class="numberMessages">Сообщений:@(numberMessages)</p>
+                                    <p class="lastMessage">@(lastMessage)</p>
+                               
+                            </div>
                         </article>
                     }
                 }

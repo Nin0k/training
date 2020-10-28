@@ -74,6 +74,34 @@ namespace DAL.SQL
             }
         }
 
+        public IEnumerable<User> GetAllUsers() 
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Users_GetAllUsers";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                _connection.Open();
+
+                var reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    
+                    User users = new User(reader["nickname"] as string, (bool)reader["admin"], reader["password"] as string);
+
+                    users.IDUser = (Guid)reader["id_user"];
+                    users.Reputation = (int)reader["reputation"];
+                    users.DateRegistration = (DateTime)reader["date_registration"];
+
+                    yield return users;
+                }
+            }
+        }
         public void RegistrationUser(User user)
         {
 
@@ -213,6 +241,23 @@ namespace DAL.SQL
                 command.Parameters.AddWithValue("@id_user", user.IDUser);
                 command.Parameters.AddWithValue("@reputation", user.Reputation);
                 command.Parameters.AddWithValue("@admin", user.Admin);
+
+                _connection.Open();
+                command.ExecuteReader();
+            }
+        }
+        public void DeleteUser(Guid id)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Users_DeleteUser";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@id", id);
 
                 _connection.Open();
                 command.ExecuteReader();

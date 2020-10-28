@@ -26,5 +26,18 @@ namespace BLL.Logic
             _topicsDAL.CreateNewTopic(newTopic);
             return newTopic.IDTopic;
         }
+        public bool DeleteTopic(Guid idTopic) 
+        {
+            try
+            {
+                _topicsDAL.DeleteTopic(idTopic);
+                return true;
+            }
+            catch 
+            {
+
+                return false;
+            }
+        }
     }
 }

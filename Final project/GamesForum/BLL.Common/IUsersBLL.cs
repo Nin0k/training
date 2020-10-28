@@ -17,5 +17,8 @@ namespace BLL.Common
         bool CheckForExistence(string name);
         string GetPassword(string name);
         bool EditReputationUser(Guid idUser, string action);
+        IEnumerable<User> GetAllUsers();
+        bool ChangeUserRole(string nameUser, bool newRole);
+        bool DeleteUser(Guid id);
     }
 }

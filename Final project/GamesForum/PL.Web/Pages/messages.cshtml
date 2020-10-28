@@ -16,8 +16,14 @@
         //var itemsMassage = massage.OrderBy(x => x.Date).ToArray();
 
         <section>
-            <header>
+            <header class="headerForMessageBox">
                 <h2>@(topic.Name)</h2>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="deleteTopic" id="delete@(idTopic)">
+                        <img src="~/Content/image/delete-message.png" alt="delete topic" class="img_deleteTopic" title="Удалить тему"/>
+                    </div>
+                }
             </header>
             <div class="category" id="categoryForMessages">
 
@@ -26,39 +32,47 @@
                 {
                     User user = WebUserPL.GetUserByID(item.IDUser);
 
-                    <div class="message">
+                <div class="message">
 
-                        <div class="userBlock" id="@(user.IDUser)@(item.IDMessage)">
-                            <img src="~/Content/image/no_avatar.png" alt="avatar" />
-                            <h3>@(user.Nickname)</h3>
-                            <span class="reputation@(user.IDUser)"> Репутация: @(user.Reputation)</span>
-                        </div>
-
-                        <div class="text_message" id="@(item.IDMessage)">
-                            <p>@(item.Text)</p>
-
-                            <div class="info_messange">
-                                <p>@(item.Date)</p>
-
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <button class="reputation">
-                                        <img class="reputation_messges reputation_plus" src="~/Content/image/plus.png" alt="plus" />
-                                    </button>
-
-                                    <p id="reputation@(item.IDMessage)">@(item.Reputation)</p>
-
-                                    <button class="reputation">
-                                        <img class="reputation_messges reputation_minus" src="~/Content/image/minus.png" alt="minus" />
-                                    </button>
-                                }
-                                else
-                                {
-                                    <p>Репутация: @(item.Reputation)</p>
-                                }
-                            </div>
-                        </div>
+                    <div class="userBlock" id="@(user.IDUser)@(item.IDMessage)">
+                        <img src="~/Content/image/no_avatar.png" alt="avatar" />
+                        <h3>@(user.Nickname)</h3>
+                        <span class="reputation@(user.IDUser)"> Репутация: @(user.Reputation)</span>
                     </div>
+
+                    <div class="text_message" id="@(item.IDMessage)">
+                        <p >@(item.Text)</p>
+
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="deleteMessage" id="delete@(item.IDMessage)">
+                                <img src="~/Content/image/delete-message.png" alt="delete message" class="img_deleteMessage" title="Удалить сообщение" />
+                            </div>
+                        }
+                    </div>
+                    
+                    <div class="info_messange">
+                        <p>@(item.Date)</p>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <button class="reputation">
+                                <img class="reputation_messges reputation_plus" src="~/Content/image/plus.png" alt="plus" />
+                            </button>
+
+                            <p id="reputation@(item.IDMessage)">@(item.Reputation)</p>
+
+                            <button class="reputation">
+                                <img class="reputation_messges reputation_minus" src="~/Content/image/minus.png" alt="minus" />
+                            </button>
+                        }
+                        else
+                        {
+                            <p>Репутация: @(item.Reputation)</p>
+                        }
+                    </div>
+                </div>
 
                 }
             </div>

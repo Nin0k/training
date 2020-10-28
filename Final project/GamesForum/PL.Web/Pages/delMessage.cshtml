@@ -1,0 +1,11 @@
+﻿@using PL.Web
+
+@{
+
+    if (Guid.TryParse(Request["idMessage"], out Guid idMessage))
+    {
+        var WebMessagePL = new WebMessagesPL();
+        WebMessagePL.DeleteMessage(idMessage);
+
+    }
+}

@@ -7,6 +7,7 @@
     var forums = WebForumPL.DisplayAllForums();
 
     var WebTopicPL = new WebTopicsPL();
+    var WebMessagePL = new WebMessagesPL();
 }
 @foreach (var item in forums)
 {
@@ -22,21 +23,29 @@
             {
                 if (rubric.Importand)
                 {
-                <article>
-                    <div class="nameTopic" id="@(rubric.IDTopic)">@(rubric.Name)</div>
-                </article>
+                    var allMessages = WebMessagePL.GetMassagesByIdTopic(rubric.IDTopic);
+                    var numberMessages = allMessages.Count();
+                    var lastMessage = "";
+                    if (numberMessages > 0)
+                    {
+                        var date = allMessages.Last().Date;
+                        lastMessage = "Последнее: " + date;
+                    }
+
+                    <article>
+                        <div class="nameTopic" id="@(rubric.IDTopic)">
+
+                            @(rubric.Name)
+                            
+                                <p class="numberMessages">Сообщений:@(numberMessages)</p>
+                                <p class="lastMessage">@(lastMessage)</p>
+                            
+                        </div>
+                    </article>
                 }
             }
-                @*<article>
-                <a href="#user">Описание игры</a>
-            </article>
-            <article>
-                <a href="#user">Отзывы</a>
-            </article>
-            <article>
-                <a href="#user">Квесты</a>
-            </article>*@
-            </div>
+           
+        </div>
     </section>
     }
 }

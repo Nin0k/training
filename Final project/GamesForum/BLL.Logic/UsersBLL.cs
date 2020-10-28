@@ -19,6 +19,7 @@ namespace BLL.Logic
         }
         public User GetUserByID(Guid id) => _usersDAL.GetUserByID(id);
         public User GetUserByName(string nickname) => _usersDAL.GetUserByName(nickname);
+        public IEnumerable<User> GetAllUsers() => _usersDAL.GetAllUsers();
         public string[] GetRolesForUser(string username) => _usersDAL.GetRolesForUser(username);
         public bool IsUserInRole(string username, string roleName) => _usersDAL.IsUserInRole(username, roleName);
         public bool RegistrationUser(string login, string password, bool admin)
@@ -55,6 +56,32 @@ namespace BLL.Logic
                 }
                 user.Reputation = reputation;
                 _usersDAL.EditUser(user);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool ChangeUserRole(string nameUser, bool newRole)
+        {
+            try
+            {
+                User user = GetUserByName(nameUser);
+                user.Admin = newRole;
+                _usersDAL.EditUser(user);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool DeleteUser(Guid id)
+        {
+            try
+            {
+                _usersDAL.DeleteUser(id);
                 return true;
             }
             catch

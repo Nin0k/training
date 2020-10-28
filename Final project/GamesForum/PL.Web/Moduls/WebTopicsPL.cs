@@ -19,5 +19,6 @@ namespace PL.Web
         public IEnumerable<Topic> GetAllByIdForum(Guid idForum) => _topicsBLL.GetAllByIdForum(idForum);
         public Topic GetTopicByID(Guid idTopic) => _topicsBLL.GetTopicByID(idTopic);
         public Guid CreateNewTopic(string name, Guid idForum, bool importand) => _topicsBLL.CreateNewTopic(name, idForum, importand);
+        public bool DeleteTopic(Guid idTopic) => _topicsBLL.DeleteTopic(idTopic);
     }
 }

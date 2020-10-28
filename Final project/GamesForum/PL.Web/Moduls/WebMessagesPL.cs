@@ -22,5 +22,6 @@ namespace PL.Web
 
         public bool EditReputationMessang(Guid idMessage, string action) => _messagesBLL.EditReputationMessang(idMessage, action);
         public Guid CreateNewMessage(string textMessage, Guid idUser, Guid idTopic) => _messagesBLL.CreateNewMessage(textMessage, idUser, idTopic);
+        public bool DeleteMessage(Guid idMessage) => _messagesBLL.DeleteMessage(idMessage);
     }
 }

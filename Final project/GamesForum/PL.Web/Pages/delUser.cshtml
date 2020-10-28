@@ -1,0 +1,12 @@
+﻿@using PL.Web
+
+@{
+    var WebUserPL = new WebUsersPL();
+
+    string nameUser = Request["nameUser"];
+
+    var user = WebUserPL.GetUserByName(nameUser);
+
+    WebUserPL.DeleteUser(user.IDUser);
+
+}

@@ -59,7 +59,7 @@
     }
     
 }
-function Request(url, data) {
+function RequestNoUpdates (url, data) {
     fetch(url,
         {
             method: "POST",
@@ -78,12 +78,12 @@ function findAncestorId(el, cls) {
     return el.id;
 }
 
-function editReputation(e) {
+function editMessage(e) {
     let url = "/Pages/editMessage.cshtml";
     e = e || window.event;
     let el = e.target || e.srcElement;
     let allClass = el.classList;
-
+    console.log(allClass);
     let data = new FormData();
     
     for (var i = 0; i < allClass.length; i++) {
@@ -91,16 +91,22 @@ function editReputation(e) {
             let idMessage = findAncestorId(el, "text_message")
             data.append("id_message", idMessage);
             data.append("action", "+");
-            Request(url, data);
+            RequestNoUpdates(url, data);
         }
         else if (allClass[i] == "reputation_minus") {
             let idMessage = findAncestorId(el, "text_message")
             data.append("id_message", idMessage);
             data.append("action", "-");
-            Request(url, data);
+            RequestNoUpdates(url, data);
         }
-        else if (allClass[i] =="buttonForSaveMessage") {
+        else if (allClass[i] == "buttonForSaveMessage") {
             saveMessage(el);
+        }
+        else if (allClass[i] == "img_deleteMessage") {
+            deleteMessage(el);
+        }
+        else if (allClass[i] == "img_deleteTopic") {
+            deleteTopic(el);
         }
       
     } 
@@ -121,13 +127,36 @@ function saveMessage(el) {
         data.append("nameUser", nameUser);
         data.append("idTopic", idTopic);
         document.getElementById("exit").click();
-        Request(url, data);
+        RequestNoUpdates(url, data);
     }
     else {
         document.getElementById('textMessage').value="Введите текст!";
     }
 }
+function deleteMessage(el) {
+    let url = "/Pages/delMessage.cshtml";
+    if (confirm("Удалить сообщение?")) {
+        let id = findAncestorId(el, "deleteMessage");
+        let idMessage = id.substr(6);
+        let data = new FormData();
+        data.append("idMessage", idMessage);
+        Request(url, data);
+    }
+    
+}
+function deleteTopic(el) {
+    let url = "/Pages/delTopic.cshtml";
+    if (confirm("Удалить тему?")) {
+        let id = findAncestorId(el, "deleteTopic");
+        let idTopic = id.substr(6);
+        let data = new FormData();
+        data.append("idTopic", idTopic);
+        Request(url, data);
+    }
 
-document.getElementById('forMessage').addEventListener("click", editReputation);
+}
 
-//document.getElementById('saveMessage').addEventListener("click", saveMessage);
+document.getElementById('forMessage').addEventListener("click", editMessage);
+
+document.getElementById('saveTopic').addEventListener("click", saveTopic);
+

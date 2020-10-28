@@ -13,5 +13,6 @@ namespace DAL.Common
         Message GetMessageByID(Guid id);
         void EditMessang(Message messange);
         void CreateNewMessage(Message messange);
+        void DeleteMessage(Guid idMessage);
     }
 }

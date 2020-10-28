@@ -33,7 +33,7 @@ function logIn() {
     let url = "/login.cshtml";
     location.href = url;
 }
-
+ 
 function logonUser(url, data) {
     var xhr = new XMLHttpRequest()
     xhr.open('POST', url);
@@ -97,7 +97,6 @@ function saveTopic(el) {
     let headerTopic = document.getElementById('headerTopic').value;
     let textTopic = document.getElementById('textTopic').value;
     let nameUser = document.getElementById('nameUserForTopic').value;
-    console.log(el.target);
     let idForm = findAncestorId(el.target, "form_addTopic");
     let removeSpacesHeader = headerTopic.trim();
     let removeSpacesText = textTopic.trim();
@@ -126,22 +125,84 @@ function saveTopic(el) {
         Request(url, data);
     }
     else {
-        alert("Введите текст и название темы!");//TODO
+        alert("Введите текст и название темы!");
     }
 }
+
+
+function сhangeRole(e) {
+    let url = "/Pages/editUser.cshtml";
+    e = e || window.event;
+    let el = e.target || e.srcElement;
+    let idSelect = el.id;
+    let role = document.getElementById(idSelect).value;
+    let nameUser = idSelect.substr(6);
+
+    let roleInversion;
+    let nameRole;
+
+    if (role=="true") {
+        nameRole = "администратор";
+        roleInversion = "false";
+    }
+    else if(role=="false"){
+        nameRole = "пользователь";
+        roleInversion = "true";
+    }
+
+    if (confirm(`Изменить роль пользователя ${nameUser} на ${nameRole}?`)) {
+        let data = new FormData();
+        data.append("nameUser", nameUser);
+        data.append("newRole", role);
+       
+        Request(url, data);
+    }
+    else {
+        
+        document.getElementById(idSelect).value = roleInversion;
+    }
+}
+function deletUser(e) {
+    let url = "/Pages/delUser.cshtml";
+    e = e || window.event;
+    let el = e.target || e.srcElement;
+    let idButton = el.id;
+    let nameUser = idButton.substr(5);
+    if (confirm(`Удалить пользователя ${nameUser}?`)) {
+        let data = new FormData();
+        data.append("nameUser", nameUser);
+       
+        Request(url, data);
+    }
+    
+}
+
 
 let buttonTopics = document.querySelectorAll('.nameTopic');
 for (let i = 0; i < buttonTopics.length; i++) {
     buttonTopics[i].addEventListener("click", openMessages);
 }
+
+
+let userSelect = document.getElementsByName('userSelect');
+for (let i = 0; i < userSelect.length; i++) {
+    userSelect[i].addEventListener("change", сhangeRole);
+}
+
+let buttonDeletUser = document.querySelectorAll('.deletUser');
+for (let i = 0; i < buttonDeletUser.length; i++) {
+    buttonDeletUser[i].addEventListener("click", deletUser);
+}
+
 //document.getElementById('button_exit').addEventListener("click", exit);
 
 //document.getElementById('button_login').addEventListener("click", logIn);
-document.getElementById('saveTopic').addEventListener("click", saveTopic);
+//document.getElementById('saveTopic').addEventListener("click", saveTopic);
 
 document.getElementById('logon').addEventListener("click", logon);
 
 document.getElementById('registration').addEventListener("click", registration);
+
 
 
 

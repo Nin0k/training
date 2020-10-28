@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/_BasicLayout.cshtml";
+}
+@{ if (User.IsInRole("Admin"))
+   {
+    
+    @RenderPage("~/Pages/_getListUsers.cshtml")
+    }
+    else
+    {
+        Response.Redirect("/");
+    }
+}
+

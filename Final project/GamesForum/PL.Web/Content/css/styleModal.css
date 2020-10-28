@@ -1,6 +1,6 @@
 ﻿
 .openModal, .openModalTopic {
-    background: #f6f6f6;
+    background: #ffffff;
     border: none;
     font-size: 18px;
     display: flex;
@@ -13,9 +13,7 @@
 .openModal img, .openModalTopic img{
     margin: 0 5px;
 }
-.openModalTopic {
-    background: #ffffff;
-}
+
 .form_addTopic {
     display: flex;
     justify-content: flex-end;
@@ -60,7 +58,7 @@
 }
 
 .modal-item textarea { 
-    height: 60px; 
+    height: 200px; 
     resize: none;
     font-family: sans-serif;
 }

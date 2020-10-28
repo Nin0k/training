@@ -12,5 +12,6 @@ namespace BLL.Common
         IEnumerable<Topic> GetAllByIdForum(Guid idForum);
         Topic GetTopicByID(Guid idTopic);
         Guid CreateNewTopic(string name, Guid idForum, bool importand);
+        bool DeleteTopic(Guid idTopic);
     }
 }

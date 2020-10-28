@@ -17,5 +17,7 @@ namespace DAL.Common
         void RegistrationUser(User user);
         bool CheckForExistence(string name);
         void EditUser(User user);
+        IEnumerable<User> GetAllUsers();
+        void DeleteUser(Guid id);
     }
 }

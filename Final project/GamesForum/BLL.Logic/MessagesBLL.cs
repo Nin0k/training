@@ -52,5 +52,18 @@ namespace BLL.Logic
             _messageDAL.CreateNewMessage(messange);
             return messange.IDMessage;
         }
+        public bool DeleteMessage(Guid idMessage)
+        {
+            try
+            {
+                _messageDAL.DeleteMessage(idMessage);
+                return true;
+            }
+            catch 
+            {
+
+                return false;
+            }
+        }
     }
 }

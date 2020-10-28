@@ -89,5 +89,22 @@ namespace DAL.SQL
                 command.ExecuteReader();
             }
         }
+        public void DeleteTopic(Guid idTopic)
+        {
+            using (SqlConnection _connection = new SqlConnection(_connectionString))
+            {
+                var stProc = "Topics_DeleteTopic";
+
+                var command = new SqlCommand(stProc, _connection)
+                {
+                    CommandType = System.Data.CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@id", idTopic);
+
+                _connection.Open();
+                command.ExecuteReader();
+            }
+        }
     }
 }

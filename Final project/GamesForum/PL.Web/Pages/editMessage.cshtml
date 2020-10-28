@@ -1,8 +1,7 @@
 ﻿@using PL.Web
-@using Entitiens
 @using Newtonsoft.Json
-@{
 
+@{
     if (Guid.TryParse(Request["id_message"], out Guid idMessage))
     {
         string action = Request["action"];
@@ -22,7 +21,5 @@
             int updateMessange = WebMessagePL.GetMessageByID(idMessage).Reputation;
             Response.Write(JsonConvert.SerializeObject(new string[] {"reputation", $"{idUser}", $"{updateUser}", $"{idMessage}", $"{updateMessange}" }));
         }
-
-
     }
 }
