@@ -1,0 +1,13 @@
+
+nav {
+    float: left;
+}
+aside {
+    float: right;
+}
+section {
+    margin: 0 110px;
+}
+footer {
+    clear: both;
+}

@@ -1,0 +1,6 @@
+main {
+    display: table;
+}
+nav, section, aside {
+    display: table-cell;
+}

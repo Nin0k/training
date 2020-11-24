@@ -1,0 +1,18 @@
+main {
+    position: relative;
+}
+nav, aside {
+    position: absolute;
+    top:0;
+    bottom: 0;
+}
+nav {
+    left:0;
+}
+aside {
+    right: 0;
+}
+section {
+    margin: 0 100px;
+    
+}

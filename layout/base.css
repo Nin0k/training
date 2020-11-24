@@ -1,0 +1,20 @@
+header, footer, main, section{
+    border: 1px solid #000000;
+    text-align: center;
+}
+section, main {
+    border-top: none;
+    border-bottom: none;
+}
+html, body {
+    height: 100%;
+}
+header, footer {
+    height: 50px;
+}
+main {
+    min-height: 100%;
+}
+nav, aside {
+    width: 100px;
+}

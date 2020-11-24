@@ -1,0 +1,11 @@
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+section {
+    width: 100%;
+}
+footer {
+    align-items: flex-end;
+}
